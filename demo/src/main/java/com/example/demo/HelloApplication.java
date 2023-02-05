@@ -7,7 +7,6 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-
 public class HelloApplication extends Application {
     private static Stage mainStage;
     public static Stage getMainStage() {
@@ -18,7 +17,7 @@ public class HelloApplication extends Application {
     public void start(Stage stage) throws IOException {
         mainStage = stage;
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("login-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 600, 400);
+        Scene scene = new Scene(fxmlLoader.load(), 500, 300);
         stage.setTitle("Login");
         stage.setScene(scene);
         stage.show();

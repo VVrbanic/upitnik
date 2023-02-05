@@ -1,6 +1,5 @@
 package com.example.demo;
 
-import FileBase.FileBase;
 import entities.EducationLevel;
 import entities.Input;
 import entities.User;
@@ -10,18 +9,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
 
-public class RegistrationController implements GeneralFX{
+public class UserInputController implements GeneralFX {
     @FXML
     private TextField firstName;
 
@@ -110,9 +101,7 @@ public class RegistrationController implements GeneralFX{
         birthDate.setValue(null);
         roleUser.setSelected(false);
         roleAdmin.setSelected(false);
-
     }
-
     //METHODS
     public void isFull(ArrayList < String > messages) {
         if (firstName.getText().isBlank()) {

@@ -24,7 +24,7 @@
    <children>
       <Text strokeType="OUTSIDE" strokeWidth="0.0" text="DOBRODOŠLI!" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
          <font>
-            <Font size="36.0" />
+            <Font size="24.0" />
          </font>
       </Text>
       <Button mnemonicParsing="false" onAction="#startQuiz" text="ZAPOČNI NOVI KVIZ" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.rowSpan="2">
@@ -35,14 +35,14 @@
             <Insets />
          </opaqueInsets>
          <font>
-            <Font size="18.0" />
+            <Font size="14.0" />
          </font></Button>
       <Button mnemonicParsing="false" onAction="#seeResult" text="PREGLED DOSADAŠNJIH REZULTATA" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.rowSpan="2" GridPane.valignment="CENTER">
          <GridPane.margin>
             <Insets />
          </GridPane.margin>
          <font>
-            <Font size="18.0" />
+            <Font size="14.0" />
          </font></Button>
    </children>
 </GridPane>

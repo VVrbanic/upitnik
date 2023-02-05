@@ -33,13 +33,13 @@ public class LoginController implements GeneralFX{
             if(Input.checkUsersPassword(nickname.getText(), password.getText()).isPresent()){
                 if(Input.checkUsersPassword(nickname.getText(), password.getText()).get().getIsAdmin().equals(false)){
                     FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("userDashboard-view.fxml"));
-                    Scene scene = new Scene(fxmlLoader.load(), 800, 600);
+                    Scene scene = new Scene(fxmlLoader.load(), 500, 300);
                     HelloApplication.getMainStage().setTitle("Korisnik");
                     HelloApplication.getMainStage().setScene(scene);
                     HelloApplication.getMainStage().show();
                 }else{
-                    FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("adminMenuBar-view.fxml"));
-                    Scene scene = new Scene(fxmlLoader.load(), 800, 600);
+                    FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("menuBar-view.fxml"));
+                    Scene scene = new Scene(fxmlLoader.load(), 1000, 600);
                     HelloApplication.getMainStage().setTitle("Admin" +
                             "");
                     HelloApplication.getMainStage().setScene(scene);

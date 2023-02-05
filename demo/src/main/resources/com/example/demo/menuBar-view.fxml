@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+
+<MenuBar xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.MenuBarController">
+  <menus>
+    <Menu mnemonicParsing="false" text="Korisnici">
+      <items>
+            <MenuItem mnemonicParsing="false" onAction="#showUserInput" text="Unesi novog korisnika" />
+        <MenuItem mnemonicParsing="false" onAction="#showUserEdit" text="Pretraga" />
+      </items>
+    </Menu>
+    <Menu mnemonicParsing="false" text="Pitanja">
+      <items>
+            <MenuItem mnemonicParsing="false" text="Unesi novo pitanje" />
+            <MenuItem mnemonicParsing="false" text="Ažuriranje i pretraga" />
+      </items>
+    </Menu>
+    <Menu mnemonicParsing="false" text="Kategorije">
+      <items>
+            <MenuItem mnemonicParsing="false" text="Unesi novu kategoriju" />
+            <MenuItem mnemonicParsing="false" text="Ažuriranje i pretraga" />
+      </items>
+    </Menu>
+  </menus>
+</MenuBar>

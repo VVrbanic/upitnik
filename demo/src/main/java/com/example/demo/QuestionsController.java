@@ -31,7 +31,7 @@ public class QuestionsController {
     @FXML
     Button next;
 
-    public static Integer i = 0;
+    public Integer i = 0;
     public static Integer result = 0;
     ToggleGroup anwser = new ToggleGroup();
     List<Question> questionList = new ArrayList<>(FileBase.getQuiz(QuizConditionController.getIndex()));
@@ -59,7 +59,7 @@ public class QuestionsController {
         }
         else{
             FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("results-view.fxml"));
-            Scene scene = new Scene(fxmlLoader.load(), 800, 600);
+            Scene scene = new Scene(fxmlLoader.load(), 500, 300);
             HelloApplication.getMainStage().setTitle("Rezultati");
             HelloApplication.getMainStage().setScene(scene);
             HelloApplication.getMainStage().show();
