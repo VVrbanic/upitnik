@@ -1,0 +1,654 @@
+2023-01-28 21:02:36 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "INSERT INTO EDUCATION (education_level)[*],\000d\000aVALUES (Nezavršena osnovna škola)"; expected "OVERRIDING USER VALUE, OVERRIDING SYSTEM VALUE, DIRECT, SORTED, DEFAULT VALUES, VALUES, SET, WITH, (, SELECT, TABLE, VALUES"; SQL statement:
+INSERT INTO EDUCATION (education_level),
+VALUES (Nezavršena osnovna škola) [42001-214]
+2023-01-28 21:03:07 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "INSERT INTO EDUCATION (education_level)[*],\000d\000aVALUES ('Nezavršena osnovna škola')"; expected "OVERRIDING USER VALUE, OVERRIDING SYSTEM VALUE, DIRECT, SORTED, DEFAULT VALUES, VALUES, SET, WITH, (, SELECT, TABLE, VALUES"; SQL statement:
+INSERT INTO EDUCATION (education_level),
+VALUES ('Nezavršena osnovna škola') [42001-214]
+2023-01-28 21:03:37 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "INSERT INTO EDUCATION (education_level)[*],\000d\000aVALUES ('Nezavrsena osnovna skola')"; expected "OVERRIDING USER VALUE, OVERRIDING SYSTEM VALUE, DIRECT, SORTED, DEFAULT VALUES, VALUES, SET, WITH, (, SELECT, TABLE, VALUES"; SQL statement:
+INSERT INTO EDUCATION (education_level),
+VALUES ('Nezavrsena osnovna skola') [42001-214]
+2023-01-28 21:05:33 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "EDUCATION_LEVEL CHARACTER VARYING(30)": "U&'Zavr\\0161ena 3 godine fakulteta/visoke \\0161kole' (40)"; SQL statement:
+INSERT INTO EDUCATION (education_level)
+VALUES ('Završena 3 godine fakulteta/visoke škole') [22001-214]
+2023-01-28 21:29:02 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE [*]USER(\000d\000aid LONG NOT NULL GENERATED ALWAYS AS IDENTITY,\000d\000ais_admin SMALLINT NOT NULL,\000d\000afirstname VARCHAR(30) NOT NULL,\000d\000alastname VARCHAR(30) NOT NULL,\000d\000aemail VARCHAR(30) NOT NULL,\000d\000ausername VARCHAR(30) NOT NULL,\000d\000apassword VARCHAR(30) NOT NULL,\000d\000aeducation_id SMALLINT NOT NULL,\000d\000adate_of_birth DATE NOT NULL,\000d\000aPRIMARY KEY(id),\000d\000aFOREIGN KEY(education_id) REFERENCES EDUCATION(id)\000d\000a)"; expected "identifier"; SQL statement:
+CREATE TABLE USER(
+id LONG NOT NULL GENERATED ALWAYS AS IDENTITY,
+is_admin SMALLINT NOT NULL,
+firstname VARCHAR(30) NOT NULL,
+lastname VARCHAR(30) NOT NULL,
+email VARCHAR(30) NOT NULL,
+username VARCHAR(30) NOT NULL,
+password VARCHAR(30) NOT NULL,
+education_id SMALLINT NOT NULL,
+date_of_birth DATE NOT NULL,
+PRIMARY KEY(id),
+FOREIGN KEY(education_id) REFERENCES EDUCATION(id)
+) [42001-214]
+2023-01-28 21:32:31 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE [*]USER(\000d\000aid LONG NOT NULL GENERATED ALWAYS AS IDENTITY,\000d\000ais_admin SMALLINT NOT NULL,\000d\000afirstname VARCHAR(30) NOT NULL,\000d\000alastname VARCHAR(30) NOT NULL,\000d\000aemail VARCHAR(30) NOT NULL,\000d\000ausername VARCHAR(30) NOT NULL,\000d\000apassword VARCHAR(30) NOT NULL,\000d\000aeducation_id SMALLINT NOT NULL,\000d\000adate_of_birth DATE NOT NULL,\000d\000aPRIMARY KEY(id),\000d\000aFOREIGN KEY(education_id) REFERENCES EDUCATION(id)\000d\000a)"; expected "identifier"; SQL statement:
+CREATE TABLE USER(
+id LONG NOT NULL GENERATED ALWAYS AS IDENTITY,
+is_admin SMALLINT NOT NULL,
+firstname VARCHAR(30) NOT NULL,
+lastname VARCHAR(30) NOT NULL,
+email VARCHAR(30) NOT NULL,
+username VARCHAR(30) NOT NULL,
+password VARCHAR(30) NOT NULL,
+education_id SMALLINT NOT NULL,
+date_of_birth DATE NOT NULL,
+PRIMARY KEY(id),
+FOREIGN KEY(education_id) REFERENCES EDUCATION(id)
+) [42001-214]
+2023-01-28 21:36:53 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE [*]CATEGORY(\000d\000aid LONG NOT NULL GENERATED ALWAYS AS IDENTITY,\000d\000aname VARCHAR(50) NOT NULL\000d\000aPRIMARY KEY(id))"; expected "OR REPLACE, FORCE, VIEW, ALIAS, SEQUENCE, USER, TRIGGER, ROLE, SCHEMA, CONSTANT, DOMAIN, TYPE, DATATYPE, AGGREGATE, LINKED, MEMORY, CACHED, LOCAL TEMPORARY, GLOBAL TEMPORARY, TEMP, TEMPORARY, TABLE, SYNONYM, UNIQUE, HASH, SPATIAL, INDEX"; SQL statement:
+CREATE CATEGORY(
+id LONG NOT NULL GENERATED ALWAYS AS IDENTITY,
+name VARCHAR(50) NOT NULL
+PRIMARY KEY(id)) [42001-214]
+2023-01-28 21:37:16 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE [*]CATEGORIES(\000d\000aid LONG NOT NULL GENERATED ALWAYS AS IDENTITY,\000d\000aname VARCHAR(50) NOT NULL\000d\000aPRIMARY KEY(id))"; expected "OR REPLACE, FORCE, VIEW, ALIAS, SEQUENCE, USER, TRIGGER, ROLE, SCHEMA, CONSTANT, DOMAIN, TYPE, DATATYPE, AGGREGATE, LINKED, MEMORY, CACHED, LOCAL TEMPORARY, GLOBAL TEMPORARY, TEMP, TEMPORARY, TABLE, SYNONYM, UNIQUE, HASH, SPATIAL, INDEX"; SQL statement:
+CREATE CATEGORIES(
+id LONG NOT NULL GENERATED ALWAYS AS IDENTITY,
+name VARCHAR(50) NOT NULL
+PRIMARY KEY(id)) [42001-214]
+2023-01-28 21:37:53 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE [*]QUESTION_TYPE(\000d\000aid LONG NOT NULL GENERATED ALWAYS AS IDENTITY,\000d\000aname VARCHAR(50) NOT NULL\000d\000aPRIMARY KEY(id))"; expected "OR REPLACE, FORCE, VIEW, ALIAS, SEQUENCE, USER, TRIGGER, ROLE, SCHEMA, CONSTANT, DOMAIN, TYPE, DATATYPE, AGGREGATE, LINKED, MEMORY, CACHED, LOCAL TEMPORARY, GLOBAL TEMPORARY, TEMP, TEMPORARY, TABLE, SYNONYM, UNIQUE, HASH, SPATIAL, INDEX"; SQL statement:
+CREATE QUESTION_TYPE(
+id LONG NOT NULL GENERATED ALWAYS AS IDENTITY,
+name VARCHAR(50) NOT NULL
+PRIMARY KEY(id)) [42001-214]
+2023-01-28 21:38:09 jdbc[5]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE [*]QUESTION_TYPE(\000d\000aid LONG NOT NULL GENERATED ALWAYS AS IDENTITY,\000d\000aname VARCHAR(50) NOT NULL\000d\000aPRIMARY KEY(id))"; expected "OR REPLACE, FORCE, VIEW, ALIAS, SEQUENCE, USER, TRIGGER, ROLE, SCHEMA, CONSTANT, DOMAIN, TYPE, DATATYPE, AGGREGATE, LINKED, MEMORY, CACHED, LOCAL TEMPORARY, GLOBAL TEMPORARY, TEMP, TEMPORARY, TABLE, SYNONYM, UNIQUE, HASH, SPATIAL, INDEX"; SQL statement:
+CREATE QUESTION_TYPE(
+id LONG NOT NULL GENERATED ALWAYS AS IDENTITY,
+name VARCHAR(50) NOT NULL
+PRIMARY KEY(id)) [42001-214]
+2023-01-28 21:39:12 jdbc[5]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE [*]QUESTIONTYPE(\000d\000aid LONG NOT NULL GENERATED ALWAYS AS IDENTITY,\000d\000aname VARCHAR(50) NOT NULL\000d\000aPRIMARY KEY(id))"; expected "OR REPLACE, FORCE, VIEW, ALIAS, SEQUENCE, USER, TRIGGER, ROLE, SCHEMA, CONSTANT, DOMAIN, TYPE, DATATYPE, AGGREGATE, LINKED, MEMORY, CACHED, LOCAL TEMPORARY, GLOBAL TEMPORARY, TEMP, TEMPORARY, TABLE, SYNONYM, UNIQUE, HASH, SPATIAL, INDEX"; SQL statement:
+CREATE QUESTIONTYPE(
+id LONG NOT NULL GENERATED ALWAYS AS IDENTITY,
+name VARCHAR(50) NOT NULL
+PRIMARY KEY(id)) [42001-214]
+2023-01-31 10:59:03 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE CATEGORY (\000d\000aid LONG NOT NULL GENERATED ALWAYS AS IDENTITY,\000d\000aname VARCHAR(50) NOT NULL,\000d\000aPRIMARY KEY(id),\000d\000a[*])"; expected "identifier"; SQL statement:
+CREATE TABLE CATEGORY (
+id LONG NOT NULL GENERATED ALWAYS AS IDENTITY,
+name VARCHAR(50) NOT NULL,
+PRIMARY KEY(id),
+) [42001-214]
+2023-01-31 10:59:03 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]."; SQL statement:
+. [42000-214]
+2023-01-31 10:59:31 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]."; SQL statement:
+. [42000-214]
+2023-01-31 10:59:41 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "CATEGORY" already exists; SQL statement:
+CREATE TABLE CATEGORY (
+id LONG NOT NULL GENERATED ALWAYS AS IDENTITY,
+name VARCHAR(50) NOT NULL,
+PRIMARY KEY(id)
+) [42101-214]
+2023-01-31 11:00:07 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: Unknown data type: "SMALINT"; SQL statement:
+CREATE TABLE QUESTIONS (
+id LONG NOT NULL GENERATED ALWAYS AS IDENTITY,
+category_id SMALINT NOT NULL,
+correct_anwser SMALINT NOT NULL,
+a SMALLINT NOT NULL,
+b SMALLINT NOT NULL,
+c SMALLINT NOT NULL,
+d SMALLINT NOT NULL,
+PRIMARY KEY(id),
+FOREIGN KEY(category_id) REFERENCES CATEGORY(id)
+) [50004-214]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:554)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:477)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.command.Parser.readIfDataType1(Parser.java:6249)
+	at org.h2.command.Parser.readIfDataType(Parser.java:6087)
+	at org.h2.command.Parser.parseColumnWithType(Parser.java:6069)
+	at org.h2.command.Parser.parseColumnForTable(Parser.java:5948)
+	at org.h2.command.Parser.parseTableColumnDefinition(Parser.java:9331)
+	at org.h2.command.Parser.parseCreateTable(Parser.java:9271)
+	at org.h2.command.Parser.parseCreate(Parser.java:6784)
+	at org.h2.command.Parser.parsePrepared(Parser.java:763)
+	at org.h2.command.Parser.parse(Parser.java:689)
+	at org.h2.command.Parser.parse(Parser.java:661)
+	at org.h2.command.Parser.prepareCommand(Parser.java:569)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:631)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:554)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1116)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:237)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:223)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1339)
+	at org.h2.server.web.WebApp.query(WebApp.java:1137)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1103)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1090)
+	at org.h2.server.web.WebThread.process(WebThread.java:188)
+	at org.h2.server.web.WebThread.run(WebThread.java:101)
+	at java.base/java.lang.Thread.run(Thread.java:1589)
+2023-01-31 11:00:24 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: Unknown data type: "SMALINT"; SQL statement:
+CREATE TABLE QUESTIONS (
+id LONG NOT NULL GENERATED ALWAYS AS IDENTITY,
+category_id SMALLINT NOT NULL,
+correct_anwser SMALINT NOT NULL,
+a SMALLINT NOT NULL,
+b SMALLINT NOT NULL,
+c SMALLINT NOT NULL,
+d SMALLINT NOT NULL,
+PRIMARY KEY(id),
+FOREIGN KEY(category_id) REFERENCES CATEGORY(id)
+) [50004-214]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:554)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:477)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.command.Parser.readIfDataType1(Parser.java:6249)
+	at org.h2.command.Parser.readIfDataType(Parser.java:6087)
+	at org.h2.command.Parser.parseColumnWithType(Parser.java:6069)
+	at org.h2.command.Parser.parseColumnForTable(Parser.java:5948)
+	at org.h2.command.Parser.parseTableColumnDefinition(Parser.java:9331)
+	at org.h2.command.Parser.parseCreateTable(Parser.java:9271)
+	at org.h2.command.Parser.parseCreate(Parser.java:6784)
+	at org.h2.command.Parser.parsePrepared(Parser.java:763)
+	at org.h2.command.Parser.parse(Parser.java:689)
+	at org.h2.command.Parser.parse(Parser.java:661)
+	at org.h2.command.Parser.prepareCommand(Parser.java:569)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:631)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:554)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1116)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:237)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:223)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1339)
+	at org.h2.server.web.WebApp.query(WebApp.java:1137)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1103)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1090)
+	at org.h2.server.web.WebThread.process(WebThread.java:188)
+	at org.h2.server.web.WebThread.run(WebThread.java:101)
+	at java.base/java.lang.Thread.run(Thread.java:1589)
+2023-01-31 11:17:27 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "INSERT INTO [*]TABLE CATEGORY(name)\000d\000aVALUES(""Ljudi"")"; expected "identifier"; SQL statement:
+INSERT INTO TABLE CATEGORY(name)
+VALUES("Ljudi") [42001-214]
+2023-01-31 11:18:36 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "INSERT INTO [*]TABLE CATEGORY(name)\000d\000aVALUES('Ljudi')"; expected "identifier"; SQL statement:
+INSERT INTO TABLE CATEGORY(name)
+VALUES('Ljudi') [42001-214]
+2023-01-31 17:35:41 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "INSERT INTO QUESTIONS ([*]'category_id', 'correct_anwser', 'a', 'b', 'c', 'd')\000d\000aVALUES( Koji pisac je sa 26 godina oženio svoju nećakinju u dobi od 13 godina? ,  1 ,  1 ,  Edgar Allan Poe ,  Ernest Heminway ,  Fjodor Mihajlovič Dostojevski ,  Jarome David Salinger )"; expected "identifier"; SQL statement:
+INSERT INTO QUESTIONS ('category_id', 'correct_anwser', 'a', 'b', 'c', 'd')
+VALUES( Koji pisac je sa 26 godina oženio svoju nećakinju u dobi od 13 godina? ,  1 ,  1 ,  Edgar Allan Poe ,  Ernest Heminway ,  Fjodor Mihajlovič Dostojevski ,  Jarome David Salinger ) [42001-214]
+2023-01-31 17:35:41 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "INSERT INTO QUESTIONS ([*]'category_id', 'correct_anwser', 'a', 'b', 'c', 'd')\000d\000aVALUES( Kako je umrla Virgina Wolf? ,  1 ,  4 ,  Predozirala se tabletama ,  Miješanjem tableta i heroina ,  Bacila se s mosta sa zavezanim kamenom oko noge ,  Utopila se u rijeci sa džepovima punim kamenja )"; expected "identifier"; SQL statement:
+INSERT INTO QUESTIONS ('category_id', 'correct_anwser', 'a', 'b', 'c', 'd')
+VALUES( Kako je umrla Virgina Wolf? ,  1 ,  4 ,  Predozirala se tabletama ,  Miješanjem tableta i heroina ,  Bacila se s mosta sa zavezanim kamenom oko noge ,  Utopila se u rijeci sa džepovima punim kamenja ) [42001-214]
+2023-01-31 17:35:41 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "INSERT INTO QUESTIONS ('category_id', 'correct_anwser', 'a', 'b', 'c', 'd')\000d\000aVALUES( Koja od sljedećih pjesama ne izvodi Elvis Presley? ,  1 ,  4 ,  Jailhouse Rock ,  Love me tender ,  She's not you ,  Only you );\000d\000a\000d\000aINSERT INTO QUESTIONS ('category_id', 'correct_anwser', 'a', 'b', 'c', 'd')\000d\000aVALUES( Koje je puno ima Al Pacina? ,  1 ,  3 ,  Alfred James ,  Albert James ,  Alfredo James ,  Augusto James );\000d\000a\000d\000aINSERT INTO QUESTIONS ('category_id', 'correct_anwser', 'a', 'b', 'c', 'd')\000d\000aVALUES( Koliko je godina imao Coronel Hardnel Sanders kada je otvorio prvi KFC? ,  1 ,  2 ,  23 ,  63 ,  53 ,  33 );\000d\000a\000d\000aINSERT INTO QUESTIONS ('category_id', 'correct_anwser', 'a', 'b', 'c', 'd')\000d\000aVALUES( Između koje dvije rijeke se nalazila Mezopotamija? ,  2 ,  3 ,  Eufrat i Balikh ,  Tigris i Murat ,  Eufrat i Tigris ,  Murat i Balikh );\000d\000a\000d\000aINSERT INTO QUESTIONS ('category_id', 'correct_anwser', 'a', 'b', 'c', 'd')\000d\000aVALUES( Za vrijeme kojeg solsticija je u Hrvatskoj najduži dan i najkraća noć? ,  2 ,  2 ,  Za vrijeme proljetnog solsticija ,  Za vrijeme ljetnog solsticija ,  Za vrijeme jesenskog solsticija ,  Za vrijeme zimskog solsticija );\000d\000a\000d\000aINSERT INTO QUESTIONS ('category_id', 'correct_anwser', 'a', 'b', 'c', 'd')\000d\000aVALUES( Kako se zove faza u kojoj sanjamo? ,  2 ,  1 ,  REM ,  RAM ,  FEM ,  FAM );\000d\000a\000d\000aINSERT INTO QUESTIONS ('category_id', 'correct_anwser', 'a', 'b', 'c', 'd')\000d\000aVALUES( Kako se još zove mamina sestra? ,  2 ,  2 ,  Ujna ,  Teta ,  Strina ,  Baka );\000d\000a\000d\000aINSERT INTO QUESTIONS ('category_id', 'correct_anwser', 'a', 'b', 'c', 'd')\000d\000aVALUES( Jedan radijan ima približno ,  2 ,  2 ,  45 stupnjeva ,  60 stupnjeva ,  120 stupnjeva ,  180 stupnjeva );\000d\000a\000d\000aINSERT INTO QUESTIONS ('category_id', 'correct_anwser', 'a', 'b', 'c', 'd')\000d\000aVALUES( Koji je planet simbol transseksualne zajednice? ,  3 ,  4 ,  Venera ,  Mars ,  Uran ,  Merkur );\000d\000a\000d\000aINSERT INTO QUESTIONS ('category_id', 'correct_anwser', 'a', 'b', 'c', 'd')\000d\000aVALUES( Koji od slijedećih biogenih elemenata nije mirkoelement? ,  3 ,  3 ,  Kalij ,  Sumpor ,  Bor ,  Željezo );\000d\000a\000d\000aINSERT INTO QUESTIONS ('category_id', 'correct_anwser', 'a', 'b', 'c', 'd')\000d\000aVALUES( Koja gljiva nije u skupini lističarka? ,  3 ,  4 ,  Bukovača ,  Muhara ,  Zelena pupavka ,  Vrganj );\000d\000a\000d\000aINSERT INTO QUESTIONS ('category_id', 'correct_anwser', 'a', 'b', 'c', 'd')\000d\000aVALUES( Što nam govori Hessov zakon? ,  3 ,  1 ,  Zbroj prirasta entalpija pojedinih koraka na koje se teorijski reakcija može prikazati ,  Pretvorba jedne vrste energije u druge energije je neuništiva ,  Sudaranje čestica je jedan od uvjeta kemijske reakcije ,  Reakcijom plinova u zraku i vlažnog zraka dobivamo kiselinu  );\000d\000a\000d\000aINSERT INTO QUESTIONS ('category_id', 'correct_anwser', 'a', 'b', 'c', 'd')\000d\000aVALUES( Što uzrokuje pomicanje litosfernih ploča? ,  3 ,  1 ,  Konvekcijska strujanja magme u srednjem plaštu ,  Pucanje magmaskih stijena u oceankoj kori ,  Mješanje bazičnih sa magmatskih stijena ,  Ne zna se točan uzrok );\000d\000a\000d\000aINSERT INTO QUESTIONS ('category_id', 'correct_anwser', 'a', 'b', 'c', 'd')\000d\000aVALUES( Tko je bio najveći proizvođač automobila za 2016. godinu? ,  4 ,  1 ,  Volkswagen ,  Fiat ,  Audi ,  BMW );\000d\000a\000d\000aINSERT INTO QUESTIONS ('category_id', 'correct_anwser', 'a', 'b', 'c', 'd')\000d\000aVALUES( Koje godine je proizveden prvi Iphone? ,  4 ,  4 ,  2005 ,  2009 ,  2003 ,  2007 );\000d\000a\000d\000aINSERT INTO QUESTIONS ('category_id', 'correct_anwser', 'a', 'b', 'c', 'd')\000d\000aVALUES( Koji je niz kronološki točan (od najstarija inovacija prema najmlađoj)? ,  4 ,  3 ,  iTunes- Facebook- Instagram- Windows 7- Xbox ,  Facebook-Xbox- iTunes- Windows 7- Instagram ,  iTunes- Xbox- Fabeboook- Windows 7-Instagram ,  Xbox- Facebook- iTunes- Instagram- Windows 7 );\000d\000a\000d\000aINSERT INTO QUESTIONS ('category_id', 'correct_anwser', 'a', 'b', 'c', 'd')\000d\000aVALUES( Koji od navedenih je najlošiji izvor energije? ,  4 ,  3 ,  Drvo ,  Tekući plin ,  Smeđi ugljen  ,  Prirodni plin );\000d\000a\000d\000aINSERT INTO QUESTIONS ('category_id', 'correct_anwser', 'a', 'b', 'c', 'd')\000d\000aVALUES( Koji most je najpogodni za prelazak preko velikih udaljenosti? ,  4 ,  1 ,  Viseći most ,  Gradni most ,  Lučni most ,  Ovješeni most );\000d\000a\000d\000aINSERT INTO QUESTIONS ('category_id', 'correct_anwser', 'a', 'b', 'c', 'd')\000d\000aVALUES( Koja od slijedećih poza ne postoji u jogi? ,  5 ,  3 ,  Pas prema gore ,  Drvo ,  Položaj ruže ,  Položaj bebe );\000d\000a\000d\000aINSERT INTO QUESTIONS ('category_id', 'correct_anwser', 'a', 'b', 'c', 'd')\000d\000aVALUES( Koji umak je jedno vrijeme bio korišten kao medicinsko sredstvo? ,  5 ,  2 ,  Majoneza ,  Kečap ,  Senf ,  Slatko-kiseli umak  );\000d\000a\000d\000aINSERT INTO QUESTIONS ('category_id', 'correct_anwser', 'a', 'b', 'c', 'd')\000d\000aVALUES( Ljudi imaju urođenu žudnju za čime? ,  5 ,  1 ,  Šećerom  ,  Soli ,  Paprom ,  Kiselom hranom );\000d\000a\000d\000aINSERT INTO QUESTIONS ('category_id', 'correct_anwser', 'a', 'b', 'c', 'd')\000d\000aVALUES( Kakva se djeca mogu čuti na Radiju 101? ,  5 ,  3 ,  Stara djeca ,  Mlada djeca ,  Zločesta djeca ,  Dobra djeca );\000d\000a\000d\000aINSERT INTO QUESTIONS ('category_id', 'correct_anwser', 'a', 'b', 'c', 'd')\000d\000aVALUES( Kolika je optimalna temeperatura hladnjaka? ,  5 ,  1 ,  od 5 do7 stupnjeva ,  od 1 do 3 stupnja ,  od -1 do +1 stupanj ,  1. od 7 do 10 stupnjeva );\000d\000a\000d\000aINSERT INTO QUESTIONS ('category_id', 'correct_anwser', 'a', 'b', 'c', 'd')\000d\000aVALUES( Tko je autor kipa Mislilac? ,  6 ,  1 ,  Auguste Rodin ,  Ernst Barlach ,  Henri Matisse ,  Henry Moore );\000d\000a\000d\000aINSERT INTO QUESTIONS ('category_id', 'correct_anwser', 'a', 'b', 'c', 'd')\000d\000aVALUES( Tko je 1516. napisao Utopiju? ,  6 ,  4 ,  Erazmo Roterdamski ,  Francis Bacon ,  Robert Greene ,  Thomas More );\000d\000a\000d\000aINSERT INTO QUESTIONS ('category_id', 'correct_anwser', 'a', 'b', 'c', 'd')\000d\000aVALUES( Koji je slikar autor djela Stvaranje Adama? ,  6 ,  2 ,  Leonardo Da Vinci ,  Michelangelo ,  Francesco Francia ,  Donatello );\000d\000a\000d\000aINSERT INTO QUESTIONS ('category_id', 'correct_anwser', 'a', 'b', 'c', 'd')\000d\000aVALUES( U kojem razdoblju je živio Leonardo da Vinci? ,  6 ,  2 ,  Baroku ,  Renesansi ,  Realizmu ,  Gotici );\000d\000a\000d\000aINSERT INTO QUESTIONS ('category_id', 'correct_anwser', 'a', 'b', 'c', 'd')\000d\000aVALUES( Tko je Danteovoj komediji dodao pridjev božanstvena? ,  6 ,  2 ,  Dante ,  Boccaccio ,  Machiavelli ,  Alberti );\000d\000a\000d\000aINSERT INTO QUESTIONS ('category_id', 'correct_anwser', 'a', 'b', 'c', 'd')\000d\000aVALUES( Koji je najstariji hrvatski nogometni klub? ,  7 ,  3 ,  Dinamo ,  Zagreb ,  Segesta ,  Hajduk );\000d\000a\000d\000aINSERT INTO QUESTIONS ('category_id', 'correct_anwser', 'a', 'b', 'c', 'd')\000d\000aVALUES( Kako se zove najveći DOTA 2 turnir? ,  7 ,  3 ,  Galaxy Battles ,  DOTA Summit ,  The International ,  ZOTAC Cup Masters );\000d\000a\000d\000aINSERT INTO QUESTIONS ('category_id', 'correct_anwser', 'a', 'b', 'c', 'd')\000d\000aVALUES( Kako se zove prvi debitant u Fromuli 1 koji je vodio u ukupnom poretku vozača? ,  7 ,  2 ,  Michael Schmcher ,  Lewis Hamilton ,  Ayrton Senna ,  Nikki Lauda );\000d\000a\000d\000aINSERT INTO QUESTIONS ('category_id', 'correct_anwser', 'a', 'b', 'c', 'd')\000d\000aVALUES( Koji od pojmova se ne odnose na kriket? ,  7 ,  4 ,  Innings ,  Pitch ,  Bacač ,  Rukavica );\000d\000a\000d\000aINSERT INTO QUESTIONS ('category_id', 'correct_anwser', 'a', 'b', 'c', 'd[*]')\000d\000aVALUES( Između koje se dvije momčadi u finalu Lige prvaka 2005. godine dogodio jedan najvećih preokreta u ligi prvaka? ,  7 ,  4 ,  Real Madrid- Juventus ,  Barcelona- Arsenal ,  Chelsea- Bayern ,  Milan- Liverpool );"; SQL statement:
+INSERT INTO QUESTIONS ('category_id', 'correct_anwser', 'a', 'b', 'c', 'd')
+VALUES( Koja od sljedećih pjesama ne izvodi Elvis Presley? ,  1 ,  4 ,  Jailhouse Rock ,  Love me tender ,  She's not you ,  Only you );
+
+INSERT INTO QUESTIONS ('category_id', 'correct_anwser', 'a', 'b', 'c', 'd')
+VALUES( Koje je puno ima Al Pacina? ,  1 ,  3 ,  Alfred James ,  Albert James ,  Alfredo James ,  Augusto James );
+
+INSERT INTO QUESTIONS ('category_id', 'correct_anwser', 'a', 'b', 'c', 'd')
+VALUES( Koliko je godina imao Coronel Hardnel Sanders kada je otvorio prvi KFC? ,  1 ,  2 ,  23 ,  63 ,  53 ,  33 );
+
+INSERT INTO QUESTIONS ('category_id', 'correct_anwser', 'a', 'b', 'c', 'd')
+VALUES( Između koje dvije rijeke se nalazila Mezopotamija? ,  2 ,  3 ,  Eufrat i Balikh ,  Tigris i Murat ,  Eufrat i Tigris ,  Murat i Balikh );
+
+INSERT INTO QUESTIONS ('category_id', 'correct_anwser', 'a', 'b', 'c', 'd')
+VALUES( Za vrijeme kojeg solsticija je u Hrvatskoj najduži dan i najkraća noć? ,  2 ,  2 ,  Za vrijeme proljetnog solsticija ,  Za vrijeme ljetnog solsticija ,  Za vrijeme jesenskog solsticija ,  Za vrijeme zimskog solsticija );
+
+INSERT INTO QUESTIONS ('category_id', 'correct_anwser', 'a', 'b', 'c', 'd')
+VALUES( Kako se zove faza u kojoj sanjamo? ,  2 ,  1 ,  REM ,  RAM ,  FEM ,  FAM );
+
+INSERT INTO QUESTIONS ('category_id', 'correct_anwser', 'a', 'b', 'c', 'd')
+VALUES( Kako se još zove mamina sestra? ,  2 ,  2 ,  Ujna ,  Teta ,  Strina ,  Baka );
+
+INSERT INTO QUESTIONS ('category_id', 'correct_anwser', 'a', 'b', 'c', 'd')
+VALUES( Jedan radijan ima približno ,  2 ,  2 ,  45 stupnjeva ,  60 stupnjeva ,  120 stupnjeva ,  180 stupnjeva );
+
+INSERT INTO QUESTIONS ('category_id', 'correct_anwser', 'a', 'b', 'c', 'd')
+VALUES( Koji je planet simbol transseksualne zajednice? ,  3 ,  4 ,  Venera ,  Mars ,  Uran ,  Merkur );
+
+INSERT INTO QUESTIONS ('category_id', 'correct_anwser', 'a', 'b', 'c', 'd')
+VALUES( Koji od slijedećih biogenih elemenata nije mirkoelement? ,  3 ,  3 ,  Kalij ,  Sumpor ,  Bor ,  Željezo );
+
+INSERT INTO QUESTIONS ('category_id', 'correct_anwser', 'a', 'b', 'c', 'd')
+VALUES( Koja gljiva nije u skupini lističarka? ,  3 ,  4 ,  Bukovača ,  Muhara ,  Zelena pupavka ,  Vrganj );
+
+INSERT INTO QUESTIONS ('category_id', 'correct_anwser', 'a', 'b', 'c', 'd')
+VALUES( Što nam govori Hessov zakon? ,  3 ,  1 ,  Zbroj prirasta entalpija pojedinih koraka na koje se teorijski reakcija može prikazati ,  Pretvorba jedne vrste energije u druge energije je neuništiva ,  Sudaranje čestica je jedan od uvjeta kemijske reakcije ,  Reakcijom plinova u zraku i vlažnog zraka dobivamo kiselinu  );
+
+INSERT INTO QUESTIONS ('category_id', 'correct_anwser', 'a', 'b', 'c', 'd')
+VALUES( Što uzrokuje pomicanje litosfernih ploča? ,  3 ,  1 ,  Konvekcijska strujanja magme u srednjem plaštu ,  Pucanje magmaskih stijena u oceankoj kori ,  Mješanje bazičnih sa magmatskih stijena ,  Ne zna se točan uzrok );
+
+INSERT INTO QUESTIONS ('category_id', 'correct_anwser', 'a', 'b', 'c', 'd')
+VALUES( Tko je bio najveći proizvođač automobila za 2016. godinu? ,  4 ,  1 ,  Volkswagen ,  Fiat ,  Audi ,  BMW );
+
+INSERT INTO QUESTIONS ('category_id', 'correct_anwser', 'a', 'b', 'c', 'd')
+VALUES( Koje godine je proizveden prvi Iphone? ,  4 ,  4 ,  2005 ,  2009 ,  2003 ,  2007 );
+
+INSERT INTO QUESTIONS ('category_id', 'correct_anwser', 'a', 'b', 'c', 'd')
+VALUES( Koji je niz kronološki točan (od najstarija inovacija prema najmlađoj)? ,  4 ,  3 ,  iTunes- Facebook- Instagram- Windows 7- Xbox ,  Facebook-Xbox- iTunes- Windows 7- Instagram ,  iTunes- Xbox- Fabeboook- Windows 7-Instagram ,  Xbox- Facebook- iTunes- Instagram- Windows 7 );
+
+INSERT INTO QUESTIONS ('category_id', 'correct_anwser', 'a', 'b', 'c', 'd')
+VALUES( Koji od navedenih je najlošiji izvor energije? ,  4 ,  3 ,  Drvo ,  Tekući plin ,  Smeđi ugljen  ,  Prirodni plin );
+
+INSERT INTO QUESTIONS ('category_id', 'correct_anwser', 'a', 'b', 'c', 'd')
+VALUES( Koji most je najpogodni za prelazak preko velikih udaljenosti? ,  4 ,  1 ,  Viseći most ,  Gradni most ,  Lučni most ,  Ovješeni most );
+
+INSERT INTO QUESTIONS ('category_id', 'correct_anwser', 'a', 'b', 'c', 'd')
+VALUES( Koja od slijedećih poza ne postoji u jogi? ,  5 ,  3 ,  Pas prema gore ,  Drvo ,  Položaj ruže ,  Položaj bebe );
+
+INSERT INTO QUESTIONS ('category_id', 'correct_anwser', 'a', 'b', 'c', 'd')
+VALUES( Koji umak je jedno vrijeme bio korišten kao medicinsko sredstvo? ,  5 ,  2 ,  Majoneza ,  Kečap ,  Senf ,  Slatko-kiseli umak  );
+
+INSERT INTO QUESTIONS ('category_id', 'correct_anwser', 'a', 'b', 'c', 'd')
+VALUES( Ljudi imaju urođenu žudnju za čime? ,  5 ,  1 ,  Šećerom  ,  Soli ,  Paprom ,  Kiselom hranom );
+
+INSERT INTO QUESTIONS ('category_id', 'correct_anwser', 'a', 'b', 'c', 'd')
+VALUES( Kakva se djeca mogu čuti na Radiju 101? ,  5 ,  3 ,  Stara djeca ,  Mlada djeca ,  Zločesta djeca ,  Dobra djeca );
+
+INSERT INTO QUESTIONS ('category_id', 'correct_anwser', 'a', 'b', 'c', 'd')
+VALUES( Kolika je optimalna temeperatura hladnjaka? ,  5 ,  1 ,  od 5 do7 stupnjeva ,  od 1 do 3 stupnja ,  od -1 do +1 stupanj ,  1. od 7 do 10 stupnjeva );
+
+INSERT INTO QUESTIONS ('category_id', 'correct_anwser', 'a', 'b', 'c', 'd')
+VALUES( Tko je autor kipa Mislilac? ,  6 ,  1 ,  Auguste Rodin ,  Ernst Barlach ,  Henri Matisse ,  Henry Moore );
+
+INSERT INTO QUESTIONS ('category_id', 'correct_anwser', 'a', 'b', 'c', 'd')
+VALUES( Tko je 1516. napisao Utopiju? ,  6 ,  4 ,  Erazmo Roterdamski ,  Francis Bacon ,  Robert Greene ,  Thomas More );
+
+INSERT INTO QUESTIONS ('category_id', 'correct_anwser', 'a', 'b', 'c', 'd')
+VALUES( Koji je slikar autor djela Stvaranje Adama? ,  6 ,  2 ,  Leonardo Da Vinci ,  Michelangelo ,  Francesco Francia ,  Donatello );
+
+INSERT INTO QUESTIONS ('category_id', 'correct_anwser', 'a', 'b', 'c', 'd')
+VALUES( U kojem razdoblju je živio Leonardo da Vinci? ,  6 ,  2 ,  Baroku ,  Renesansi ,  Realizmu ,  Gotici );
+
+INSERT INTO QUESTIONS ('category_id', 'correct_anwser', 'a', 'b', 'c', 'd')
+VALUES( Tko je Danteovoj komediji dodao pridjev božanstvena? ,  6 ,  2 ,  Dante ,  Boccaccio ,  Machiavelli ,  Alberti );
+
+INSERT INTO QUESTIONS ('category_id', 'correct_anwser', 'a', 'b', 'c', 'd')
+VALUES( Koji je najstariji hrvatski nogometni klub? ,  7 ,  3 ,  Dinamo ,  Zagreb ,  Segesta ,  Hajduk );
+
+INSERT INTO QUESTIONS ('category_id', 'correct_anwser', 'a', 'b', 'c', 'd')
+VALUES( Kako se zove najveći DOTA 2 turnir? ,  7 ,  3 ,  Galaxy Battles ,  DOTA Summit ,  The International ,  ZOTAC Cup Masters );
+
+INSERT INTO QUESTIONS ('category_id', 'correct_anwser', 'a', 'b', 'c', 'd')
+VALUES( Kako se zove prvi debitant u Fromuli 1 koji je vodio u ukupnom poretku vozača? ,  7 ,  2 ,  Michael Schmcher ,  Lewis Hamilton ,  Ayrton Senna ,  Nikki Lauda );
+
+INSERT INTO QUESTIONS ('category_id', 'correct_anwser', 'a', 'b', 'c', 'd')
+VALUES( Koji od pojmova se ne odnose na kriket? ,  7 ,  4 ,  Innings ,  Pitch ,  Bacač ,  Rukavica );
+
+INSERT INTO QUESTIONS ('category_id', 'correct_anwser', 'a', 'b', 'c', 'd')
+VALUES( Između koje se dvije momčadi u finalu Lige prvaka 2005. godine dogodio jedan najvećih preokreta u ligi prvaka? ,  7 ,  4 ,  Real Madrid- Juventus ,  Barcelona- Arsenal ,  Chelsea- Bayern ,  Milan- Liverpool ); [42000-214]
+2023-01-31 17:37:31 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "INSERT INTO QUESTIONS ([*]'category_id', 'correct_anwser', 'a', 'b', 'c', 'd')\000d\000aVALUES(' Koji pisac je sa 26 godina oženio svoju nećakinju u dobi od 13 godina? ', ' 1 ', ' 1 ', ' Edgar Allan Poe ', ' Ernest Heminway ', ' Fjodor Mihajlovič Dostojevski ', ' Jarome David Salinger ')"; expected "identifier"; SQL statement:
+INSERT INTO QUESTIONS ('category_id', 'correct_anwser', 'a', 'b', 'c', 'd')
+VALUES(' Koji pisac je sa 26 godina oženio svoju nećakinju u dobi od 13 godina? ', ' 1 ', ' 1 ', ' Edgar Allan Poe ', ' Ernest Heminway ', ' Fjodor Mihajlovič Dostojevski ', ' Jarome David Salinger ') [42001-214]
+2023-01-31 17:41:24 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "INSERT INTO QUESTIONS ([*]'category_id', 'correct_anwser', 'a', 'b', 'c', 'd')\000d\000aVALUES(' Koji pisac je sa 26 godina oženio svoju nećakinju u dobi od 13 godina? ',  1 ,  1 , ' Edgar Allan Poe ', ' Ernest Heminway ', ' Fjodor Mihajlovič Dostojevski ', ' Jarome David Salinger ')"; expected "identifier"; SQL statement:
+INSERT INTO QUESTIONS ('category_id', 'correct_anwser', 'a', 'b', 'c', 'd')
+VALUES(' Koji pisac je sa 26 godina oženio svoju nećakinju u dobi od 13 godina? ',  1 ,  1 , ' Edgar Allan Poe ', ' Ernest Heminway ', ' Fjodor Mihajlovič Dostojevski ', ' Jarome David Salinger ') [42001-214]
+2023-01-31 17:41:53 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Column count does not match; SQL statement:
+INSERT INTO QUESTIONS (category_id, correct_anwser, a, b, c, d)
+VALUES(' Koji pisac je sa 26 godina oženio svoju nećakinju u dobi od 13 godina? ',  1 ,  1 , ' Edgar Allan Poe ', ' Ernest Heminway ', ' Fjodor Mihajlovič Dostojevski ', ' Jarome David Salinger ') [21002-214]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:502)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:477)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.message.DbException.get(DbException.java:188)
+	at org.h2.command.dml.Insert.doPrepare(Insert.java:295)
+	at org.h2.command.dml.DataChangeStatement.prepare(DataChangeStatement.java:37)
+	at org.h2.command.Parser.prepareCommand(Parser.java:575)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:631)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:554)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1116)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:237)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:223)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1339)
+	at org.h2.server.web.WebApp.query(WebApp.java:1137)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1103)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1090)
+	at org.h2.server.web.WebThread.process(WebThread.java:188)
+	at org.h2.server.web.WebThread.run(WebThread.java:101)
+	at java.base/java.lang.Thread.run(Thread.java:1589)
+2023-01-31 17:42:22 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Column count does not match; SQL statement:
+INSERT INTO QUESTIONS (category_id, correct_anwser, a, b, c, d)
+VALUES( 1 ,  1 ,' Koji pisac je sa 26 godina oženio svoju nećakinju u dobi od 13 godina? ', ' Edgar Allan Poe ', ' Ernest Heminway ', ' Fjodor Mihajlovič Dostojevski ', ' Jarome David Salinger ') [21002-214]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:502)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:477)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.message.DbException.get(DbException.java:188)
+	at org.h2.command.dml.Insert.doPrepare(Insert.java:295)
+	at org.h2.command.dml.DataChangeStatement.prepare(DataChangeStatement.java:37)
+	at org.h2.command.Parser.prepareCommand(Parser.java:575)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:631)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:554)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1116)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:237)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:223)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1339)
+	at org.h2.server.web.WebApp.query(WebApp.java:1137)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1103)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1090)
+	at org.h2.server.web.WebThread.process(WebThread.java:188)
+	at org.h2.server.web.WebThread.run(WebThread.java:101)
+	at java.base/java.lang.Thread.run(Thread.java:1589)
+2023-01-31 17:44:07 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Column count does not match; SQL statement:
+INSERT INTO QUESTIONS (category_id, correct_anwser, a, b, c, d, question)
+VALUES( 1 ,  1 ,' Koji pisac je sa 26 godina oženio svoju nećakinju u dobi od 13 godina? ', ' Edgar Allan Poe ', ' Ernest Heminway ', ' Fjodor Mihajlovič Dostojevski ', ' Jarome David Salinger ', ' Koji pisac je sa 26 godina oženio svoju nećakinju u dobi od 13 godina? ') [21002-214]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:502)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:477)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.message.DbException.get(DbException.java:188)
+	at org.h2.command.dml.Insert.doPrepare(Insert.java:295)
+	at org.h2.command.dml.DataChangeStatement.prepare(DataChangeStatement.java:37)
+	at org.h2.command.Parser.prepareCommand(Parser.java:575)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:631)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:554)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1116)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:237)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:223)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1339)
+	at org.h2.server.web.WebApp.query(WebApp.java:1137)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1103)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1090)
+	at org.h2.server.web.WebThread.process(WebThread.java:188)
+	at org.h2.server.web.WebThread.run(WebThread.java:101)
+	at java.base/java.lang.Thread.run(Thread.java:1589)
+2023-01-31 18:01:35 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Column "CORRCT_ANWSER" not found; SQL statement:
+INSERT INTO QUESTIONS (CATEGORY_ID, CORRCT_ANWSER, A, B, C, D, QUESTION)
+VALUES( 1 ,  4 , ' Predozirala se tabletama ', ' Miješanjem tableta i heroina ', ' Bacila se s mosta sa zavezanim kamenom oko noge ', ' Utopila se u rijeci sa džepovima punim kamenja ', ' Kako je umrla Virgina Wolf? ') [42122-214]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:502)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:477)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.table.Table.getColumn(Table.java:749)
+	at org.h2.command.Parser.parseColumn(Parser.java:1256)
+	at org.h2.command.Parser.parseColumnList(Parser.java:1241)
+	at org.h2.command.Parser.parseInsert(Parser.java:1641)
+	at org.h2.command.Parser.parsePrepared(Parser.java:814)
+	at org.h2.command.Parser.parse(Parser.java:689)
+	at org.h2.command.Parser.parse(Parser.java:661)
+	at org.h2.command.Parser.prepareCommand(Parser.java:569)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:631)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:554)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1116)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:237)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:223)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1339)
+	at org.h2.server.web.WebApp.query(WebApp.java:1137)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1103)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1090)
+	at org.h2.server.web.WebThread.process(WebThread.java:188)
+	at org.h2.server.web.WebThread.run(WebThread.java:101)
+	at java.base/java.lang.Thread.run(Thread.java:1589)
+2023-01-31 18:02:46 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Column "CORRCT_ANWSER" not found; SQL statement:
+INSERT INTO QUESTIONS (CATEGORY_ID, CORRCT_ANWSER, A, B, C, D, QUESTION)
+VALUES( 1 ,  4 , ' Predozirala se tabletama ', ' Miješanjem tableta i heroina ', ' Bacila se s mosta sa zavezanim kamenom oko noge ', ' Utopila se u rijeci sa džepovima punim kamenja ', ' Kako je umrla Virgina Wolf? ') [42122-214]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:502)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:477)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.table.Table.getColumn(Table.java:749)
+	at org.h2.command.Parser.parseColumn(Parser.java:1256)
+	at org.h2.command.Parser.parseColumnList(Parser.java:1241)
+	at org.h2.command.Parser.parseInsert(Parser.java:1641)
+	at org.h2.command.Parser.parsePrepared(Parser.java:814)
+	at org.h2.command.Parser.parse(Parser.java:689)
+	at org.h2.command.Parser.parse(Parser.java:661)
+	at org.h2.command.Parser.prepareCommand(Parser.java:569)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:631)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:554)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1116)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:237)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:223)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1339)
+	at org.h2.server.web.WebApp.query(WebApp.java:1137)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1103)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1090)
+	at org.h2.server.web.WebThread.process(WebThread.java:188)
+	at org.h2.server.web.WebThread.run(WebThread.java:101)
+	at java.base/java.lang.Thread.run(Thread.java:1589)
+2023-01-31 18:03:54 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "INSERT INTO QUESTIONS (CATEGORY_ID, CORRECT_ANWSER, A, B, C, D, QUESTION)\000d\000aVALUES( 1 ,  4 , ' Jailhouse Rock ', ' Love me tender ', ' She's not you ', ' Only you ', ' Koja od sljedećih pjesama ne izvodi Elvis Presley? ');\000d\000a\000d\000aINSERT INTO QUESTIONS (CATEGORY_ID, CORRECT_ANWSER, A, B, C, D, QUESTION)\000d\000aVALUES( 1 ,  3 , ' Alfred James ', ' Albert James ', ' Alfredo James ', ' Augusto James ', ' Koje je puno ima Al Pacina? ');\000d\000a\000d\000aINSERT INTO QUESTIONS (CATEGORY_ID, CORRECT_ANWSER, A, B, C, D, QUESTION)\000d\000aVALUES( 1 ,  2 , ' 23 ', ' 63 ', ' 53 ', ' 33 ', ' Koliko je godina imao Coronel Hardnel Sanders kada je otvorio prvi KFC? ');\000d\000a\000d\000aINSERT INTO QUESTIONS (CATEGORY_ID, CORRECT_ANWSER, A, B, C, D, QUESTION)\000d\000aVALUES( 2 ,  3 , ' Eufrat i Balikh ', ' Tigris i Murat ', ' Eufrat i Tigris ', ' Murat i Balikh ', ' Između koje dvije rijeke se nalazila Mezopotamija? ');\000d\000a\000d\000aINSERT INTO QUESTIONS (CATEGORY_ID, CORRECT_ANWSER, A, B, C, D, QUESTION)\000d\000aVALUES( 2 ,  2 , ' Za vrijeme proljetnog solsticija ', ' Za vrijeme ljetnog solsticija ', ' Za vrijeme jesenskog solsticija ', ' Za vrijeme zimskog solsticija ', ' Za vrijeme kojeg solsticija je u Hrvatskoj najduži dan i najkraća noć? ');\000d\000a\000d\000aINSERT INTO QUESTIONS (CATEGORY_ID, CORRECT_ANWSER, A, B, C, D, QUESTION)\000d\000aVALUES( 2 ,  1 , ' REM ', ' RAM ', ' FEM ', ' FAM ', ' Kako se zove faza u kojoj sanjamo? ');\000d\000a\000d\000aINSERT INTO QUESTIONS (CATEGORY_ID, CORRECT_ANWSER, A, B, C, D, QUESTION)\000d\000aVALUES( 2 ,  2 , ' Ujna ', ' Teta ', ' Strina ', ' Baka ', ' Kako se još zove mamina sestra? ');\000d\000a\000d\000aINSERT INTO QUESTIONS (CATEGORY_ID, CORRECT_ANWSER, A, B, C, D, QUESTION)\000d\000aVALUES( 2 ,  2 , ' 45 stupnjeva ', ' 60 stupnjeva ', ' 120 stupnjeva ', ' 180 stupnjeva ', ' Jedan radijan ima približno ');\000d\000a\000d\000aINSERT INTO QUESTIONS (CATEGORY_ID, CORRECT_ANWSER, A, B, C, D, QUESTION)\000d\000aVALUES( 3 ,  4 , ' Venera ', ' Mars ', ' Uran ', ' Merkur ', ' Koji je planet simbol transseksualne zajednice? ');\000d\000a\000d\000aINSERT INTO QUESTIONS (CATEGORY_ID, CORRECT_ANWSER, A, B, C, D, QUESTION)\000d\000aVALUES( 3 ,  3 , ' Kalij ', ' Sumpor ', ' Bor ', ' Željezo ', ' Koji od slijedećih biogenih elemenata nije mirkoelement? ');\000d\000a\000d\000aINSERT INTO QUESTIONS (CATEGORY_ID, CORRECT_ANWSER, A, B, C, D, QUESTION)\000d\000aVALUES( 3 ,  4 , ' Bukovača ', ' Muhara ', ' Zelena pupavka ', ' Vrganj ', ' Koja gljiva nije u skupini lističarka? ');\000d\000a\000d\000aINSERT INTO QUESTIONS (CATEGORY_ID, CORRECT_ANWSER, A, B, C, D, QUESTION)\000d\000aVALUES( 3 ,  1 , ' Zbroj prirasta entalpija pojedinih koraka na koje se teorijski reakcija može prikazati ', ' Pretvorba jedne vrste energije u druge energije je neuništiva ', ' Sudaranje čestica je jedan od uvjeta kemijske reakcije ', ' Reakcijom plinova u zraku i vlažnog zraka dobivamo kiselinu  ', ' Što nam govori Hessov zakon? ');\000d\000a\000d\000aINSERT INTO QUESTIONS (CATEGORY_ID, CORRECT_ANWSER, A, B, C, D, QUESTION)\000d\000aVALUES( 3 ,  1 , ' Konvekcijska strujanja magme u srednjem plaštu ', ' Pucanje magmaskih stijena u oceankoj kori ', ' Mješanje bazičnih sa magmatskih stijena ', ' Ne zna se točan uzrok ', ' Što uzrokuje pomicanje litosfernih ploča? ');\000d\000a\000d\000aINSERT INTO QUESTIONS (CATEGORY_ID, CORRECT_ANWSER, A, B, C, D, QUESTION)\000d\000aVALUES( 4 ,  1 , ' Volkswagen ', ' Fiat ', ' Audi ', ' BMW ', ' Tko je bio najveći proizvođač automobila za 2016. godinu? ');\000d\000a\000d\000aINSERT INTO QUESTIONS (CATEGORY_ID, CORRECT_ANWSER, A, B, C, D, QUESTION)\000d\000aVALUES( 4 ,  4 , ' 2005 ', ' 2009 ', ' 2003 ', ' 2007 ', ' Koje godine je proizveden prvi Iphone? ');\000d\000a\000d\000aINSERT INTO QUESTIONS (CATEGORY_ID, CORRECT_ANWSER, A, B, C, D, QUESTION)\000d\000aVALUES( 4 ,  3 , ' iTunes- Facebook- Instagram- Windows 7- Xbox ', ' Facebook-Xbox- iTunes- Windows 7- Instagram ', ' iTunes- Xbox- Fabeboook- Windows 7-Instagram ', ' Xbox- Facebook- iTunes- Instagram- Windows 7 ', ' Koji je niz kronološki točan (od najstarija inovacija prema najmlađoj)? ');\000d\000a\000d\000aINSERT INTO QUESTIONS (CATEGORY_ID, CORRECT_ANWSER, A, B, C, D, QUESTION)\000d\000aVALUES( 4 ,  3 , ' Drvo ', ' Tekući plin ', ' Smeđi ugljen  ', ' Prirodni plin ', ' Koji od navedenih je najlošiji izvor energije? ');\000d\000a\000d\000aINSERT INTO QUESTIONS (CATEGORY_ID, CORRECT_ANWSER, A, B, C, D, QUESTION)\000d\000aVALUES( 4 ,  1 , ' Viseći most ', ' Gradni most ', ' Lučni most ', ' Ovješeni most ', ' Koji most je najpogodni za prelazak preko velikih udaljenosti? ');\000d\000a\000d\000aINSERT INTO QUESTIONS (CATEGORY_ID, CORRECT_ANWSER, A, B, C, D, QUESTION)\000d\000aVALUES( 5 ,  3 , ' Pas prema gore ', ' Drvo ', ' Položaj ruže ', ' Položaj bebe ', ' Koja od slijedećih poza ne postoji u jogi? ');\000d\000a\000d\000aINSERT INTO QUESTIONS (CATEGORY_ID, CORRECT_ANWSER, A, B, C, D, QUESTION)\000d\000aVALUES( 5 ,  2 , ' Majoneza ', ' Kečap ', ' Senf ', ' Slatko-kiseli umak  ', ' Koji umak je jedno vrijeme bio korišten kao medicinsko sredstvo? ');\000d\000a\000d\000aINSERT INTO QUESTIONS (CATEGORY_ID, CORRECT_ANWSER, A, B, C, D, QUESTION)\000d\000aVALUES( 5 ,  1 , ' Šećerom  ', ' Soli ', ' Paprom ', ' Kiselom hranom ', ' Ljudi imaju urođenu žudnju za čime? ');\000d\000a\000d\000aINSERT INTO QUESTIONS (CATEGORY_ID, CORRECT_ANWSER, A, B, C, D, QUESTION)\000d\000aVALUES( 5 ,  3 , ' Stara djeca ', ' Mlada djeca ', ' Zločesta djeca ', ' Dobra djeca ', ' Kakva se djeca mogu čuti na Radiju 101? ');\000d\000a\000d\000aINSERT INTO QUESTIONS (CATEGORY_ID, CORRECT_ANWSER, A, B, C, D, QUESTION)\000d\000aVALUES( 5 ,  1 , ' od 5 do7 stupnjeva ', ' od 1 do 3 stupnja ', ' od -1 do +1 stupanj ', ' 1. od 7 do 10 stupnjeva ', ' Kolika je optimalna temeperatura hladnjaka? ');\000d\000a\000d\000aINSERT INTO QUESTIONS (CATEGORY_ID, CORRECT_ANWSER, A, B, C, D, QUESTION)\000d\000aVALUES( 6 ,  1 , ' Auguste Rodin ', ' Ernst Barlach ', ' Henri Matisse ', ' Henry Moore ', ' Tko je autor kipa Mislilac? ');\000d\000a\000d\000aINSERT INTO QUESTIONS (CATEGORY_ID, CORRECT_ANWSER, A, B, C, D, QUESTION)\000d\000aVALUES( 6 ,  4 , ' Erazmo Roterdamski ', ' Francis Bacon ', ' Robert Greene ', ' Thomas More ', ' Tko je 1516. napisao Utopiju? ');\000d\000a\000d\000aINSERT INTO QUESTIONS (CATEGORY_ID, CORRECT_ANWSER, A, B, C, D, QUESTION)\000d\000aVALUES( 6 ,  2 , ' Leonardo Da Vinci ', ' Michelangelo ', ' Francesco Francia ', ' Donatello ', ' Koji je slikar autor djela Stvaranje Adama? ');\000d\000a\000d\000aINSERT INTO QUESTIONS (CATEGORY_ID, CORRECT_ANWSER, A, B, C, D, QUESTION)\000d\000aVALUES( 6 ,  2 , ' Baroku ', ' Renesansi ', ' Realizmu ', ' Gotici ', ' U kojem razdoblju je živio Leonardo da Vinci? ');\000d\000a\000d\000aINSERT INTO QUESTIONS (CATEGORY_ID, CORRECT_ANWSER, A, B, C, D, QUESTION)\000d\000aVALUES( 6 ,  2 , ' Dante ', ' Boccaccio ', ' Machiavelli ', ' Alberti ', ' Tko je Danteovoj komediji dodao pridjev božanstvena? ');\000d\000a\000d\000aINSERT INTO QUESTIONS (CATEGORY_ID, CORRECT_ANWSER, A, B, C, D, QUESTION)\000d\000aVALUES( 7 ,  3 , ' Dinamo ', ' Zagreb ', ' Segesta ', ' Hajduk ', ' Koji je najstariji hrvatski nogometni klub? ');\000d\000a\000d\000aINSERT INTO QUESTIONS (CATEGORY_ID, CORRECT_ANWSER, A, B, C, D, QUESTION)\000d\000aVALUES( 7 ,  3 , ' Galaxy Battles ', ' DOTA Summit ', ' The International ', ' ZOTAC Cup Masters ', ' Kako se zove najveći DOTA 2 turnir? ');\000d\000a\000d\000aINSERT INTO QUESTIONS (CATEGORY_ID, CORRECT_ANWSER, A, B, C, D, QUESTION)\000d\000aVALUES( 7 ,  2 , ' Michael Schmcher ', ' Lewis Hamilton ', ' Ayrton Senna ', ' Nikki Lauda ', ' Kako se zove prvi debitant u Fromuli 1 koji je vodio u ukupnom poretku vozača? ');\000d\000a\000d\000aINSERT INTO QUESTIONS (CATEGORY_ID, CORRECT_ANWSER, A, B, C, D, QUESTION)\000d\000aVALUES( 7 ,  4 , ' Innings ', ' Pitch ', ' Bacač ', ' Rukavica ', ' Koji od pojmova se ne odnose na kriket? ');\000d\000a\000d\000aINSERT INTO QUESTIONS (CATEGORY_ID, CORRECT_ANWSER, A, B, C, D, QUESTION)\000d\000aVALUES( 7 ,  4 , ' Real Madrid- Juventus ', ' Barcelona- Arsenal ', ' Chelsea- Bayern ', ' Milan- Liverpool ', ' Između koje se dvije momčadi u finalu Lige prvaka 2005. godine dogodio jedan najvećih preokreta u ligi prvaka? [*]');"; SQL statement:
+INSERT INTO QUESTIONS (CATEGORY_ID, CORRECT_ANWSER, A, B, C, D, QUESTION)
+VALUES( 1 ,  4 , ' Jailhouse Rock ', ' Love me tender ', ' She's not you ', ' Only you ', ' Koja od sljedećih pjesama ne izvodi Elvis Presley? ');
+
+INSERT INTO QUESTIONS (CATEGORY_ID, CORRECT_ANWSER, A, B, C, D, QUESTION)
+VALUES( 1 ,  3 , ' Alfred James ', ' Albert James ', ' Alfredo James ', ' Augusto James ', ' Koje je puno ima Al Pacina? ');
+
+INSERT INTO QUESTIONS (CATEGORY_ID, CORRECT_ANWSER, A, B, C, D, QUESTION)
+VALUES( 1 ,  2 , ' 23 ', ' 63 ', ' 53 ', ' 33 ', ' Koliko je godina imao Coronel Hardnel Sanders kada je otvorio prvi KFC? ');
+
+INSERT INTO QUESTIONS (CATEGORY_ID, CORRECT_ANWSER, A, B, C, D, QUESTION)
+VALUES( 2 ,  3 , ' Eufrat i Balikh ', ' Tigris i Murat ', ' Eufrat i Tigris ', ' Murat i Balikh ', ' Između koje dvije rijeke se nalazila Mezopotamija? ');
+
+INSERT INTO QUESTIONS (CATEGORY_ID, CORRECT_ANWSER, A, B, C, D, QUESTION)
+VALUES( 2 ,  2 , ' Za vrijeme proljetnog solsticija ', ' Za vrijeme ljetnog solsticija ', ' Za vrijeme jesenskog solsticija ', ' Za vrijeme zimskog solsticija ', ' Za vrijeme kojeg solsticija je u Hrvatskoj najduži dan i najkraća noć? ');
+
+INSERT INTO QUESTIONS (CATEGORY_ID, CORRECT_ANWSER, A, B, C, D, QUESTION)
+VALUES( 2 ,  1 , ' REM ', ' RAM ', ' FEM ', ' FAM ', ' Kako se zove faza u kojoj sanjamo? ');
+
+INSERT INTO QUESTIONS (CATEGORY_ID, CORRECT_ANWSER, A, B, C, D, QUESTION)
+VALUES( 2 ,  2 , ' Ujna ', ' Teta ', ' Strina ', ' Baka ', ' Kako se još zove mamina sestra? ');
+
+INSERT INTO QUESTIONS (CATEGORY_ID, CORRECT_ANWSER, A, B, C, D, QUESTION)
+VALUES( 2 ,  2 , ' 45 stupnjeva ', ' 60 stupnjeva ', ' 120 stupnjeva ', ' 180 stupnjeva ', ' Jedan radijan ima približno ');
+
+INSERT INTO QUESTIONS (CATEGORY_ID, CORRECT_ANWSER, A, B, C, D, QUESTION)
+VALUES( 3 ,  4 , ' Venera ', ' Mars ', ' Uran ', ' Merkur ', ' Koji je planet simbol transseksualne zajednice? ');
+
+INSERT INTO QUESTIONS (CATEGORY_ID, CORRECT_ANWSER, A, B, C, D, QUESTION)
+VALUES( 3 ,  3 , ' Kalij ', ' Sumpor ', ' Bor ', ' Željezo ', ' Koji od slijedećih biogenih elemenata nije mirkoelement? ');
+
+INSERT INTO QUESTIONS (CATEGORY_ID, CORRECT_ANWSER, A, B, C, D, QUESTION)
+VALUES( 3 ,  4 , ' Bukovača ', ' Muhara ', ' Zelena pupavka ', ' Vrganj ', ' Koja gljiva nije u skupini lističarka? ');
+
+INSERT INTO QUESTIONS (CATEGORY_ID, CORRECT_ANWSER, A, B, C, D, QUESTION)
+VALUES( 3 ,  1 , ' Zbroj prirasta entalpija pojedinih koraka na koje se teorijski reakcija može prikazati ', ' Pretvorba jedne vrste energije u druge energije je neuništiva ', ' Sudaranje čestica je jedan od uvjeta kemijske reakcije ', ' Reakcijom plinova u zraku i vlažnog zraka dobivamo kiselinu  ', ' Što nam govori Hessov zakon? ');
+
+INSERT INTO QUESTIONS (CATEGORY_ID, CORRECT_ANWSER, A, B, C, D, QUESTION)
+VALUES( 3 ,  1 , ' Konvekcijska strujanja magme u srednjem plaštu ', ' Pucanje magmaskih stijena u oceankoj kori ', ' Mješanje bazičnih sa magmatskih stijena ', ' Ne zna se točan uzrok ', ' Što uzrokuje pomicanje litosfernih ploča? ');
+
+INSERT INTO QUESTIONS (CATEGORY_ID, CORRECT_ANWSER, A, B, C, D, QUESTION)
+VALUES( 4 ,  1 , ' Volkswagen ', ' Fiat ', ' Audi ', ' BMW ', ' Tko je bio najveći proizvođač automobila za 2016. godinu? ');
+
+INSERT INTO QUESTIONS (CATEGORY_ID, CORRECT_ANWSER, A, B, C, D, QUESTION)
+VALUES( 4 ,  4 , ' 2005 ', ' 2009 ', ' 2003 ', ' 2007 ', ' Koje godine je proizveden prvi Iphone? ');
+
+INSERT INTO QUESTIONS (CATEGORY_ID, CORRECT_ANWSER, A, B, C, D, QUESTION)
+VALUES( 4 ,  3 , ' iTunes- Facebook- Instagram- Windows 7- Xbox ', ' Facebook-Xbox- iTunes- Windows 7- Instagram ', ' iTunes- Xbox- Fabeboook- Windows 7-Instagram ', ' Xbox- Facebook- iTunes- Instagram- Windows 7 ', ' Koji je niz kronološki točan (od najstarija inovacija prema najmlađoj)? ');
+
+INSERT INTO QUESTIONS (CATEGORY_ID, CORRECT_ANWSER, A, B, C, D, QUESTION)
+VALUES( 4 ,  3 , ' Drvo ', ' Tekući plin ', ' Smeđi ugljen  ', ' Prirodni plin ', ' Koji od navedenih je najlošiji izvor energije? ');
+
+INSERT INTO QUESTIONS (CATEGORY_ID, CORRECT_ANWSER, A, B, C, D, QUESTION)
+VALUES( 4 ,  1 , ' Viseći most ', ' Gradni most ', ' Lučni most ', ' Ovješeni most ', ' Koji most je najpogodni za prelazak preko velikih udaljenosti? ');
+
+INSERT INTO QUESTIONS (CATEGORY_ID, CORRECT_ANWSER, A, B, C, D, QUESTION)
+VALUES( 5 ,  3 , ' Pas prema gore ', ' Drvo ', ' Položaj ruže ', ' Položaj bebe ', ' Koja od slijedećih poza ne postoji u jogi? ');
+
+INSERT INTO QUESTIONS (CATEGORY_ID, CORRECT_ANWSER, A, B, C, D, QUESTION)
+VALUES( 5 ,  2 , ' Majoneza ', ' Kečap ', ' Senf ', ' Slatko-kiseli umak  ', ' Koji umak je jedno vrijeme bio korišten kao medicinsko sredstvo? ');
+
+INSERT INTO QUESTIONS (CATEGORY_ID, CORRECT_ANWSER, A, B, C, D, QUESTION)
+VALUES( 5 ,  1 , ' Šećerom  ', ' Soli ', ' Paprom ', ' Kiselom hranom ', ' Ljudi imaju urođenu žudnju za čime? ');
+
+INSERT INTO QUESTIONS (CATEGORY_ID, CORRECT_ANWSER, A, B, C, D, QUESTION)
+VALUES( 5 ,  3 , ' Stara djeca ', ' Mlada djeca ', ' Zločesta djeca ', ' Dobra djeca ', ' Kakva se djeca mogu čuti na Radiju 101? ');
+
+INSERT INTO QUESTIONS (CATEGORY_ID, CORRECT_ANWSER, A, B, C, D, QUESTION)
+VALUES( 5 ,  1 , ' od 5 do7 stupnjeva ', ' od 1 do 3 stupnja ', ' od -1 do +1 stupanj ', ' 1. od 7 do 10 stupnjeva ', ' Kolika je optimalna temeperatura hladnjaka? ');
+
+INSERT INTO QUESTIONS (CATEGORY_ID, CORRECT_ANWSER, A, B, C, D, QUESTION)
+VALUES( 6 ,  1 , ' Auguste Rodin ', ' Ernst Barlach ', ' Henri Matisse ', ' Henry Moore ', ' Tko je autor kipa Mislilac? ');
+
+INSERT INTO QUESTIONS (CATEGORY_ID, CORRECT_ANWSER, A, B, C, D, QUESTION)
+VALUES( 6 ,  4 , ' Erazmo Roterdamski ', ' Francis Bacon ', ' Robert Greene ', ' Thomas More ', ' Tko je 1516. napisao Utopiju? ');
+
+INSERT INTO QUESTIONS (CATEGORY_ID, CORRECT_ANWSER, A, B, C, D, QUESTION)
+VALUES( 6 ,  2 , ' Leonardo Da Vinci ', ' Michelangelo ', ' Francesco Francia ', ' Donatello ', ' Koji je slikar autor djela Stvaranje Adama? ');
+
+INSERT INTO QUESTIONS (CATEGORY_ID, CORRECT_ANWSER, A, B, C, D, QUESTION)
+VALUES( 6 ,  2 , ' Baroku ', ' Renesansi ', ' Realizmu ', ' Gotici ', ' U kojem razdoblju je živio Leonardo da Vinci? ');
+
+INSERT INTO QUESTIONS (CATEGORY_ID, CORRECT_ANWSER, A, B, C, D, QUESTION)
+VALUES( 6 ,  2 , ' Dante ', ' Boccaccio ', ' Machiavelli ', ' Alberti ', ' Tko je Danteovoj komediji dodao pridjev božanstvena? ');
+
+INSERT INTO QUESTIONS (CATEGORY_ID, CORRECT_ANWSER, A, B, C, D, QUESTION)
+VALUES( 7 ,  3 , ' Dinamo ', ' Zagreb ', ' Segesta ', ' Hajduk ', ' Koji je najstariji hrvatski nogometni klub? ');
+
+INSERT INTO QUESTIONS (CATEGORY_ID, CORRECT_ANWSER, A, B, C, D, QUESTION)
+VALUES( 7 ,  3 , ' Galaxy Battles ', ' DOTA Summit ', ' The International ', ' ZOTAC Cup Masters ', ' Kako se zove najveći DOTA 2 turnir? ');
+
+INSERT INTO QUESTIONS (CATEGORY_ID, CORRECT_ANWSER, A, B, C, D, QUESTION)
+VALUES( 7 ,  2 , ' Michael Schmcher ', ' Lewis Hamilton ', ' Ayrton Senna ', ' Nikki Lauda ', ' Kako se zove prvi debitant u Fromuli 1 koji je vodio u ukupnom poretku vozača? ');
+
+INSERT INTO QUESTIONS (CATEGORY_ID, CORRECT_ANWSER, A, B, C, D, QUESTION)
+VALUES( 7 ,  4 , ' Innings ', ' Pitch ', ' Bacač ', ' Rukavica ', ' Koji od pojmova se ne odnose na kriket? ');
+
+INSERT INTO QUESTIONS (CATEGORY_ID, CORRECT_ANWSER, A, B, C, D, QUESTION)
+VALUES( 7 ,  4 , ' Real Madrid- Juventus ', ' Barcelona- Arsenal ', ' Chelsea- Bayern ', ' Milan- Liverpool ', ' Između koje se dvije momčadi u finalu Lige prvaka 2005. godine dogodio jedan najvećih preokreta u ligi prvaka? '); [42000-214]
+2023-01-31 18:05:22 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "INSERT INTO QUESTIONS (CATEGORY_ID, CORRCT_ANWSER, A, B, C, D, QUESTION)\000d\000aVALUES( 1 ,  4 , ' Jailhouse Rock ', ' Love me tender ', ' She's not you ', ' Only you ', ' Koja od sljedećih pjesama ne izvodi Elvis Presley? ');\000d\000a\000d\000aINSERT INTO QUESTIONS (CATEGORY_ID, CORRCT_ANWSER, A, B, C, D, QUESTION)\000d\000aVALUES( 1 ,  3 , ' Alfred James ', ' Albert James ', ' Alfredo James ', ' Augusto James ', ' Koje je puno ima Al Pacina? [*]');"; SQL statement:
+INSERT INTO QUESTIONS (CATEGORY_ID, CORRCT_ANWSER, A, B, C, D, QUESTION)
+VALUES( 1 ,  4 , ' Jailhouse Rock ', ' Love me tender ', ' She's not you ', ' Only you ', ' Koja od sljedećih pjesama ne izvodi Elvis Presley? ');
+
+INSERT INTO QUESTIONS (CATEGORY_ID, CORRCT_ANWSER, A, B, C, D, QUESTION)
+VALUES( 1 ,  3 , ' Alfred James ', ' Albert James ', ' Alfredo James ', ' Augusto James ', ' Koje je puno ima Al Pacina? '); [42000-214]
+2023-01-31 18:05:50 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "INSERT INTO QUESTIONS (CATEGORY_ID, CORRECT_ANWSER, A, B, C, D, QUESTION)\000d\000aVALUES( 1 ,  4 , ' Jailhouse Rock ', ' Love me tender ', ' She's not you ', ' Only you ', ' Koja od sljedećih pjesama ne izvodi Elvis Presley? ');\000d\000a\000d\000aINSERT INTO QUESTIONS (CATEGORY_ID, CORRECT_ANWSER, A, B, C, D, QUESTION)\000d\000aVALUES( 1 ,  3 , ' Alfred James ', ' Albert James ', ' Alfredo James ', ' Augusto James ', ' Koje je puno ima Al Pacina? ');\000d\000a\000d\000aINSERT INTO QUESTIONS (CATEGORY_ID, CORRECT_ANWSER, A, B, C, D, QUESTION)\000d\000aVALUES( 1 ,  2 , ' 23 ', ' 63 ', ' 53 ', ' 33 ', ' Koliko je godina imao Coronel Hardnel Sanders kada je otvorio prvi KFC? ');\000d\000a\000d\000aINSERT INTO QUESTIONS (CATEGORY_ID, CORRECT_ANWSER, A, B, C, D, QUESTION)\000d\000aVALUES( 2 ,  3 , ' Eufrat i Balikh ', ' Tigris i Murat ', ' Eufrat i Tigris ', ' Murat i Balikh ', ' Između koje dvije rijeke se nalazila Mezopotamija? ');\000d\000a\000d\000aINSERT INTO QUESTIONS (CATEGORY_ID, CORRECT_ANWSER, A, B, C, D, QUESTION)\000d\000aVALUES( 2 ,  2 , ' Za vrijeme proljetnog solsticija ', ' Za vrijeme ljetnog solsticija ', ' Za vrijeme jesenskog solsticija ', ' Za vrijeme zimskog solsticija ', ' Za vrijeme kojeg solsticija je u Hrvatskoj najduži dan i najkraća noć? [*]');"; SQL statement:
+INSERT INTO QUESTIONS (CATEGORY_ID, CORRECT_ANWSER, A, B, C, D, QUESTION)
+VALUES( 1 ,  4 , ' Jailhouse Rock ', ' Love me tender ', ' She's not you ', ' Only you ', ' Koja od sljedećih pjesama ne izvodi Elvis Presley? ');
+
+INSERT INTO QUESTIONS (CATEGORY_ID, CORRECT_ANWSER, A, B, C, D, QUESTION)
+VALUES( 1 ,  3 , ' Alfred James ', ' Albert James ', ' Alfredo James ', ' Augusto James ', ' Koje je puno ima Al Pacina? ');
+
+INSERT INTO QUESTIONS (CATEGORY_ID, CORRECT_ANWSER, A, B, C, D, QUESTION)
+VALUES( 1 ,  2 , ' 23 ', ' 63 ', ' 53 ', ' 33 ', ' Koliko je godina imao Coronel Hardnel Sanders kada je otvorio prvi KFC? ');
+
+INSERT INTO QUESTIONS (CATEGORY_ID, CORRECT_ANWSER, A, B, C, D, QUESTION)
+VALUES( 2 ,  3 , ' Eufrat i Balikh ', ' Tigris i Murat ', ' Eufrat i Tigris ', ' Murat i Balikh ', ' Između koje dvije rijeke se nalazila Mezopotamija? ');
+
+INSERT INTO QUESTIONS (CATEGORY_ID, CORRECT_ANWSER, A, B, C, D, QUESTION)
+VALUES( 2 ,  2 , ' Za vrijeme proljetnog solsticija ', ' Za vrijeme ljetnog solsticija ', ' Za vrijeme jesenskog solsticija ', ' Za vrijeme zimskog solsticija ', ' Za vrijeme kojeg solsticija je u Hrvatskoj najduži dan i najkraća noć? '); [42000-214]
+2023-01-31 18:06:13 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "INSERT INTO QUESTIONS (CATEGORY_ID, CORRECT_ANWSER, A, B, C, D, QUESTION)\000d\000aVALUES( 1 ,  4 , ' Jailhouse Rock ', ' Love me tender ', ' She's not you ', ' Only you ', ' Koja od sljedećih pjesama ne izvodi Elvis Presley? ');\000d\000aINSERT INTO QUESTIONS (CATEGORY_ID, CORRECT_ANWSER, A, B, C, D, QUESTION)\000d\000aVALUES( 1 ,  3 , ' Alfred James ', ' Albert James ', ' Alfredo James ', ' Augusto James ', ' Koje je puno ima Al Pacina? ');\000d\000aINSERT INTO QUESTIONS (CATEGORY_ID, CORRECT_ANWSER, A, B, C, D, QUESTION)\000d\000aVALUES( 1 ,  2 , ' 23 ', ' 63 ', ' 53 ', ' 33 ', ' Koliko je godina imao Coronel Hardnel Sanders kada je otvorio prvi KFC? ');\000d\000aINSERT INTO QUESTIONS (CATEGORY_ID, CORRECT_ANWSER, A, B, C, D, QUESTION)\000d\000aVALUES( 2 ,  3 , ' Eufrat i Balikh ', ' Tigris i Murat ', ' Eufrat i Tigris ', ' Murat i Balikh ', ' Između koje dvije rijeke se nalazila Mezopotamija? ');\000d\000aINSERT INTO QUESTIONS (CATEGORY_ID, CORRECT_ANWSER, A, B, C, D, QUESTION)\000d\000aVALUES( 2 ,  2 , ' Za vrijeme proljetnog solsticija ', ' Za vrijeme ljetnog solsticija ', ' Za vrijeme jesenskog solsticija ', ' Za vrijeme zimskog solsticija ', ' Za vrijeme kojeg solsticija je u Hrvatskoj najduži dan i najkraća noć? [*]');"; SQL statement:
+INSERT INTO QUESTIONS (CATEGORY_ID, CORRECT_ANWSER, A, B, C, D, QUESTION)
+VALUES( 1 ,  4 , ' Jailhouse Rock ', ' Love me tender ', ' She's not you ', ' Only you ', ' Koja od sljedećih pjesama ne izvodi Elvis Presley? ');
+INSERT INTO QUESTIONS (CATEGORY_ID, CORRECT_ANWSER, A, B, C, D, QUESTION)
+VALUES( 1 ,  3 , ' Alfred James ', ' Albert James ', ' Alfredo James ', ' Augusto James ', ' Koje je puno ima Al Pacina? ');
+INSERT INTO QUESTIONS (CATEGORY_ID, CORRECT_ANWSER, A, B, C, D, QUESTION)
+VALUES( 1 ,  2 , ' 23 ', ' 63 ', ' 53 ', ' 33 ', ' Koliko je godina imao Coronel Hardnel Sanders kada je otvorio prvi KFC? ');
+INSERT INTO QUESTIONS (CATEGORY_ID, CORRECT_ANWSER, A, B, C, D, QUESTION)
+VALUES( 2 ,  3 , ' Eufrat i Balikh ', ' Tigris i Murat ', ' Eufrat i Tigris ', ' Murat i Balikh ', ' Između koje dvije rijeke se nalazila Mezopotamija? ');
+INSERT INTO QUESTIONS (CATEGORY_ID, CORRECT_ANWSER, A, B, C, D, QUESTION)
+VALUES( 2 ,  2 , ' Za vrijeme proljetnog solsticija ', ' Za vrijeme ljetnog solsticija ', ' Za vrijeme jesenskog solsticija ', ' Za vrijeme zimskog solsticija ', ' Za vrijeme kojeg solsticija je u Hrvatskoj najduži dan i najkraća noć? '); [42000-214]
+2023-01-31 18:06:45 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "INSERT INTO QUESTIONS (CATEGORY_ID, CORRECT_ANWSER, A, B, C, D, QUESTION)\000d\000aVALUES( 1 ,  4 , ' Jailhouse Rock ', ' Love me tender ', ' She's not you ', ' Only you ', ' Koja od sljedećih pjesama ne izvodi Elvis Presley? [*]');"; SQL statement:
+INSERT INTO QUESTIONS (CATEGORY_ID, CORRECT_ANWSER, A, B, C, D, QUESTION)
+VALUES( 1 ,  4 , ' Jailhouse Rock ', ' Love me tender ', ' She's not you ', ' Only you ', ' Koja od sljedećih pjesama ne izvodi Elvis Presley? '); [42000-214]
+2023-01-31 18:07:09 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "INSERT INTO QUESTIONS (CATEGORY_ID, CORRECT_ANWSER, A, B, C, D, QUESTION)\000d\000aVALUES( 1 ,  4 , ' Jailhouse Rock ', ' Love me tender ', ' She's not you ', ' Only you ', ' Koja od sljedecih pjesama ne izvodi Elvis Presley? [*]');"; SQL statement:
+INSERT INTO QUESTIONS (CATEGORY_ID, CORRECT_ANWSER, A, B, C, D, QUESTION)
+VALUES( 1 ,  4 , ' Jailhouse Rock ', ' Love me tender ', ' She's not you ', ' Only you ', ' Koja od sljedecih pjesama ne izvodi Elvis Presley? '); [42000-214]
+2023-01-31 18:07:30 jdbc[5]: null
+org.h2.message.DbException: The connection was not closed by the application and is garbage collected [90018-214]
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.message.DbException.get(DbException.java:188)
+	at org.h2.jdbc.JdbcConnection.closeOld(JdbcConnection.java:190)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:132)
+	at org.h2.util.JdbcUtils.getConnection(JdbcUtils.java:288)
+	at org.h2.server.web.WebServer.getConnection(WebServer.java:808)
+	at org.h2.server.web.WebApp.login(WebApp.java:1033)
+	at org.h2.server.web.WebApp.process(WebApp.java:226)
+	at org.h2.server.web.WebApp.processRequest(WebApp.java:176)
+	at org.h2.server.web.WebThread.process(WebThread.java:152)
+	at org.h2.server.web.WebThread.run(WebThread.java:101)
+	at java.base/java.lang.Thread.run(Thread.java:1589)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientConnectionException: The connection was not closed by the application and is garbage collected [90018-214]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:678)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:477)
+	... 13 more
+2023-01-31 18:07:46 jdbc[5]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "INSERT INTO QUESTIONS (CATEGORY_ID, CORRECT_ANWSER, A, B, C, D, QUESTION)\000d\000aVALUES( 1 ,  4 , ' Jailhouse Rock ', ' Love me tender ', ' She's not you ', ' Only you ', ' Koja od sljedećih pjesama ne izvodi Elvis Presley? ');\000d\000a\000d\000aINSERT INTO QUESTIONS (CATEGORY_ID, CORRECT_ANWSER, A, B, C, D, QUESTION)\000d\000aVALUES( 1 ,  3 , ' Alfred James ', ' Albert James ', ' Alfredo James ', ' Augusto James ', ' Koje je puno ima Al Pacina? ');\000d\000a\000d\000aINSERT INTO QUESTIONS (CATEGORY_ID, CORRECT_ANWSER, A, B, C, D, QUESTION)\000d\000aVALUES( 1 ,  2 , ' 23 ', ' 63 ', ' 53 ', ' 33 ', ' Koliko je godina imao Coronel Hardnel Sanders kada je otvorio prvi KFC? ');\000d\000a\000d\000aINSERT INTO QUESTIONS (CATEGORY_ID, CORRECT_ANWSER, A, B, C, D, QUESTION)\000d\000aVALUES( 2 ,  3 , ' Eufrat i Balikh ', ' Tigris i Murat ', ' Eufrat i Tigris ', ' Murat i Balikh ', ' Između koje dvije rijeke se nalazila Mezopotamija? ');\000d\000a\000d\000aINSERT INTO QUESTIONS (CATEGORY_ID, CORRECT_ANWSER, A, B, C, D, QUESTION)\000d\000aVALUES( 2 ,  2 , ' Za vrijeme proljetnog solsticija ', ' Za vrijeme ljetnog solsticija ', ' Za vrijeme jesenskog solsticija ', ' Za vrijeme zimskog solsticija ', ' Za vrijeme kojeg solsticija je u Hrvatskoj najduži dan i najkraća noć? [*]');"; SQL statement:
+INSERT INTO QUESTIONS (CATEGORY_ID, CORRECT_ANWSER, A, B, C, D, QUESTION)
+VALUES( 1 ,  4 , ' Jailhouse Rock ', ' Love me tender ', ' She's not you ', ' Only you ', ' Koja od sljedećih pjesama ne izvodi Elvis Presley? ');
+
+INSERT INTO QUESTIONS (CATEGORY_ID, CORRECT_ANWSER, A, B, C, D, QUESTION)
+VALUES( 1 ,  3 , ' Alfred James ', ' Albert James ', ' Alfredo James ', ' Augusto James ', ' Koje je puno ima Al Pacina? ');
+
+INSERT INTO QUESTIONS (CATEGORY_ID, CORRECT_ANWSER, A, B, C, D, QUESTION)
+VALUES( 1 ,  2 , ' 23 ', ' 63 ', ' 53 ', ' 33 ', ' Koliko je godina imao Coronel Hardnel Sanders kada je otvorio prvi KFC? ');
+
+INSERT INTO QUESTIONS (CATEGORY_ID, CORRECT_ANWSER, A, B, C, D, QUESTION)
+VALUES( 2 ,  3 , ' Eufrat i Balikh ', ' Tigris i Murat ', ' Eufrat i Tigris ', ' Murat i Balikh ', ' Između koje dvije rijeke se nalazila Mezopotamija? ');
+
+INSERT INTO QUESTIONS (CATEGORY_ID, CORRECT_ANWSER, A, B, C, D, QUESTION)
+VALUES( 2 ,  2 , ' Za vrijeme proljetnog solsticija ', ' Za vrijeme ljetnog solsticija ', ' Za vrijeme jesenskog solsticija ', ' Za vrijeme zimskog solsticija ', ' Za vrijeme kojeg solsticija je u Hrvatskoj najduži dan i najkraća noć? '); [42000-214]
+2023-01-31 18:08:36 jdbc[5]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "INSERT INTO QUESTIONS (CATEGORY_ID, CORRECT_ANWSER, A, B, C, D, QUESTION)\000d\000aVALUES( 1 ,  4 , ' Jailhouse Rock ', ' Love me tender ', ' She's not you ', ' Only you ', ' Koja od sljedećih pjesama ne izvodi Elvis Presley? ');\000d\000aINSERT INTO QUESTIONS (CATEGORY_ID, CORRECT_ANWSER, A, B, C, D, QUESTION)\000d\000aVALUES( 1 ,  3 , ' Alfred James ', ' Albert James ', ' Alfredo James ', ' Augusto James ', ' Koje je puno ima Al Pacina? ');\000d\000aINSERT INTO QUESTIONS (CATEGORY_ID, CORRECT_ANWSER, A, B, C, D, QUESTION)\000d\000aVALUES( 1 ,  2 , ' 23 ', ' 63 ', ' 53 ', ' 33 ', ' Koliko je godina imao Coronel Hardnel Sanders kada je otvorio prvi KFC? ');\000d\000aINSERT INTO QUESTIONS (CATEGORY_ID, CORRECT_ANWSER, A, B, C, D, QUESTION)\000d\000aVALUES( 2 ,  3 , ' Eufrat i Balikh ', ' Tigris i Murat ', ' Eufrat i Tigris ', ' Murat i Balikh ', ' Između koje dvije rijeke se nalazila Mezopotamija? [*]');"; SQL statement:
+INSERT INTO QUESTIONS (CATEGORY_ID, CORRECT_ANWSER, A, B, C, D, QUESTION)
+VALUES( 1 ,  4 , ' Jailhouse Rock ', ' Love me tender ', ' She's not you ', ' Only you ', ' Koja od sljedećih pjesama ne izvodi Elvis Presley? ');
+INSERT INTO QUESTIONS (CATEGORY_ID, CORRECT_ANWSER, A, B, C, D, QUESTION)
+VALUES( 1 ,  3 , ' Alfred James ', ' Albert James ', ' Alfredo James ', ' Augusto James ', ' Koje je puno ima Al Pacina? ');
+INSERT INTO QUESTIONS (CATEGORY_ID, CORRECT_ANWSER, A, B, C, D, QUESTION)
+VALUES( 1 ,  2 , ' 23 ', ' 63 ', ' 53 ', ' 33 ', ' Koliko je godina imao Coronel Hardnel Sanders kada je otvorio prvi KFC? ');
+INSERT INTO QUESTIONS (CATEGORY_ID, CORRECT_ANWSER, A, B, C, D, QUESTION)
+VALUES( 2 ,  3 , ' Eufrat i Balikh ', ' Tigris i Murat ', ' Eufrat i Tigris ', ' Murat i Balikh ', ' Između koje dvije rijeke se nalazila Mezopotamija? '); [42000-214]
+2023-01-31 18:09:18 jdbc[5]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "INSERT INTO QUESTIONS (CATEGORY_ID, CORRECT_ANWSER, A, B, C, D, QUESTION)\000d\000aVALUES( 1 ,  4 , ' Jailhouse Rock ', ' Love me tender ', ' She/'/s not you ', ' Only you ', ' Koja od sljedećih pjesama ne izvodi Elvis Presley? [*]');"; SQL statement:
+INSERT INTO QUESTIONS (CATEGORY_ID, CORRECT_ANWSER, A, B, C, D, QUESTION)
+VALUES( 1 ,  4 , ' Jailhouse Rock ', ' Love me tender ', ' She/'/s not you ', ' Only you ', ' Koja od sljedećih pjesama ne izvodi Elvis Presley? '); [42000-214]
+2023-01-31 18:09:18 jdbc[5]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "INSERT INTO QUESTIONS (CATEGORY_ID, CORRECT_ANWSER, A, B, C, D, QUESTION)\000d\000aVALUES( 1 ,  4 , ' Jailhouse Rock ', ' Love me tender ', ' She/'/s not you ', ' Only you ', ' Koja od sljedećih pjesama ne izvodi Elvis Presley? [*]');"; SQL statement:
+INSERT INTO QUESTIONS (CATEGORY_ID, CORRECT_ANWSER, A, B, C, D, QUESTION)
+VALUES( 1 ,  4 , ' Jailhouse Rock ', ' Love me tender ', ' She/'/s not you ', ' Only you ', ' Koja od sljedećih pjesama ne izvodi Elvis Presley? '); [42000-214]
+2023-01-31 19:28:15 jdbc[7]: java.lang.Exception: Open Stack Trace
+	at org.h2.util.CloseWatcher.register(CloseWatcher.java:85)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:133)
+	at org.h2.util.JdbcUtils.getConnection(JdbcUtils.java:288)
+	at org.h2.server.web.WebServer.getConnection(WebServer.java:808)
+	at org.h2.server.web.WebApp.login(WebApp.java:1033)
+	at org.h2.server.web.WebApp.process(WebApp.java:226)
+	at org.h2.server.web.WebApp.processRequest(WebApp.java:176)
+	at org.h2.server.web.WebThread.process(WebThread.java:152)
+	at org.h2.server.web.WebThread.run(WebThread.java:101)
+	at java.base/java.lang.Thread.run(Thread.java:1589)
+
+org.h2.message.DbException: The connection was not closed by the application and is garbage collected [90018-214]
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.message.DbException.get(DbException.java:188)
+	at org.h2.jdbc.JdbcConnection.closeOld(JdbcConnection.java:190)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:132)
+	at org.h2.util.JdbcUtils.getConnection(JdbcUtils.java:288)
+	at org.h2.server.web.WebServer.getConnection(WebServer.java:808)
+	at org.h2.server.web.WebApp.login(WebApp.java:1033)
+	at org.h2.server.web.WebApp.process(WebApp.java:226)
+	at org.h2.server.web.WebApp.processRequest(WebApp.java:176)
+	at org.h2.server.web.WebThread.process(WebThread.java:152)
+	at org.h2.server.web.WebThread.run(WebThread.java:101)
+	at java.base/java.lang.Thread.run(Thread.java:1589)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientConnectionException: The connection was not closed by the application and is garbage collected [90018-214]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:678)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:477)
+	... 13 more
