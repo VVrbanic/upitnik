@@ -2,9 +2,12 @@ package com.example.demo;
 
 import entities.EducationLevel;
 import entities.Input;
+import entities.Role;
 import entities.User;
+import javafx.beans.Observable;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
@@ -24,23 +27,14 @@ public class UserEditController {
     private TextField mail;
     @FXML
     private DatePicker birthDate;
-
     @FXML
     private ChoiceBox<EducationLevel> educationLevel;
-
     @FXML
     private TextField userName;
-
     @FXML
-    private TextField password;
-
-    @FXML
-    private RadioButton roleAdmin;
-
-    @FXML
-    private RadioButton roleUser;
-
+    private ChoiceBox<Role> roles;
     public EducationLevel eduLvl;
+    public Role role;
 
     //TABLICA
     @FXML
@@ -53,19 +47,17 @@ public class UserEditController {
     private TableColumn<User, String> dateOfBirthC;
     @FXML
     private TableColumn<User, String> userNameC;
-    @FXML
-    private TableColumn<User, String> passwordC;
+    /*@FXML
+    private TableColumn<User, String> passwordC;*/
     @FXML
     private TableColumn<User, String> roleC;
     @FXML
     private TableColumn<User, String> educationLevelC;
-
     @FXML
     private TableView<User> userTable;
-
     private static final String USER_FILE = "C:\\Users\\Vera\\Desktop\\Upitnik-opce-informiranosti\\demo\\src\\main\\java\\file\\users.txt";
 
-
+    public List<Role> listRole = new ArrayList<>();
     public static Map<Long, User> userMap = Input.getUsers(USER_FILE);
 
     static List<User> mapToUserList(Map<Long, User> userMap) {
@@ -75,7 +67,6 @@ public class UserEditController {
         }
         return list;
     }
-
     public void initialize(){
         System.out.println("Proslo:" + mapToUserList(userMap));
         firstNameC.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getFirstName()));
@@ -89,69 +80,40 @@ public class UserEditController {
                 });
         educationLevelC.setCellValueFactory(cellDate -> new SimpleStringProperty(cellDate.getValue().getEducationLevel().getEducationName()));
         roleC.setCellValueFactory(cellDate -> new SimpleStringProperty(cellDate.getValue().getIsAdmin().toString()));
-
         userTable.setItems(FXCollections.observableList(mapToUserList(userMap)));
-
-
         educationLevel.setItems(FXCollections.observableArrayList(eduLvl.values()));
-        ToggleGroup role = new ToggleGroup();
-        roleUser.setToggleGroup(role);
-        roleAdmin.setToggleGroup(role);
+        roles.setItems(FXCollections.observableArrayList(role.values()));
     }
-
     public void searchUser() {
         String firstNameTmp = firstName.getText();
+        System.out.println(firstNameTmp);
         String lastNameTmp = lastName.getText();
         String mailTmp = mail.getText();
         LocalDate dateTmp = birthDate.getValue();
         String userNameTmp = userName.getText();
         EducationLevel educationLevelTmp = educationLevel.getSelectionModel().getSelectedItem();
-        Boolean isAdmin = null;
-        if (roleAdmin.isSelected()){
+       /*Role roleTmp = roles.getSelectionModel().getSelectedItem();
+        System.out.println(roleTmp);
+        Boolean isAdmin;
+        if(roleTmp.getRoleName().equals("Admin")){
             isAdmin = true;
-            //System.out.println(isAdmin);
-        }
-        else if (roleUser.isSelected()){
+        }else{
             isAdmin = false;
-            //System.out.println(isAdmin);
-
         }
+        System.out.println(isAdmin);*/
 
         List<User> filteredUsers = new ArrayList<>();
         if (dateTmp == null) {
-            Boolean finalIsAdmin = isAdmin;
             filteredUsers = mapToUserList(userMap).stream().filter(s -> s.getFirstName().contains(firstNameTmp)).
                     filter(s -> s.getLastName().contains(lastNameTmp)).filter(s -> s.getEmail().contains(mailTmp)).
-                    filter(s -> s.getUserName().contains(userNameTmp)).filter(s -> s.getEducationLevel().equals(educationLevelTmp)).
-                    //filter(s -> (s.getIsAdmin() == finalIsAdmin)).
+                    filter(s -> s.getUserName().contains(userNameTmp)).filter(s -> s.getEducationLevel().getEducationName().equals(educationLevelTmp)).
                     toList();
         } else {
-            Boolean finalIsAdmin = isAdmin;
             filteredUsers = mapToUserList(userMap).stream().filter(s -> s.getFirstName().contains(firstNameTmp)).
-                    filter(s -> s.getLastName().contains(lastNameTmp)).filter(s -> s.getEmail().contains(mailTmp)).
-                    filter(s -> s.getUserName().contains(userNameTmp)).filter(s -> s.getEducationLevel().equals(educationLevelTmp)).
-                    //filter(s -> s.getIsAdmin() == finalIsAdmin).
+                    filter(s -> s.getLastName().contains(lastNameTmp)).//filter(s -> s.getEmail().contains(mailTmp)).
+                    //filter(s -> s.getUserName().contains(userNameTmp)).filter(s -> s.getEducationLevel().equals(educationLevelTmp)).
                     toList();
-            //filteredUsers = filteredUsers.stream().filter(s -> s.getDateOfBirth().equals(dateTmp)).toList();
         }
-
         userTable.setItems(FXCollections.observableList(filteredUsers));
     }
-
-    /*public void dataToTable(){
-        User selectedUser = userTable.getSelectionModel().getSelectedItem();
-        userName.setText(selectedUser.getUserName());
-        password.setText(selectedUser.getPassword());
-        firstName.setText(selectedUser.getFirstName());
-        lastName.setText(selectedUser.getLastName());
-        mail.setText(selectedUser.getEmail());
-        birthDate.setValue(selectedUser.getDateOfBirth());
-        if (selectedUser.getIsAdmin() == true){
-            roleAdmin.setSelected(true);
-        }
-        else{
-            roleUser.setSelected(true);
-        }
-
-    }*/
 }

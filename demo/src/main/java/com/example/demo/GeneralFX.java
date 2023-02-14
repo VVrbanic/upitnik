@@ -2,7 +2,7 @@ package com.example.demo;
 
 import javafx.scene.control.Alert;
 
-public interface GeneralFX {
+public sealed interface GeneralFX  permits LoginController, RegistrationController, UserInputController{
 
     static void userExists() {
         Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -23,5 +23,9 @@ public interface GeneralFX {
         var alert = new Alert(Alert.AlertType.ERROR, m);
         alert.setTitle("Greška pri unosu!");
         alert.show();
+    }
+    static String hashPassword(String password){
+         String hashPass = String.valueOf(password.hashCode());
+         return hashPass;
     }
 }

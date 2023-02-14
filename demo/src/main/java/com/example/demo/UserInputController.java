@@ -12,7 +12,7 @@ import javafx.scene.control.*;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class UserInputController implements GeneralFX {
+public non-sealed class UserInputController implements GeneralFX {
     @FXML
     private TextField firstName;
 
@@ -56,6 +56,7 @@ public class UserInputController implements GeneralFX {
     public void goBack() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("login-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 500, 300);
+        scene.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
         HelloApplication.getMainStage().setTitle("Registracija");
         HelloApplication.getMainStage().setScene(scene);
         HelloApplication.getMainStage().show();

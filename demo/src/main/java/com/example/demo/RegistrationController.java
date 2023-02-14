@@ -1,6 +1,5 @@
 package com.example.demo;
 
-import FileBase.FileBase;
 import entities.EducationLevel;
 import entities.Input;
 import entities.User;
@@ -10,18 +9,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
 
-public class RegistrationController implements GeneralFX{
+public non-sealed class RegistrationController implements GeneralFX{
     @FXML
     private TextField firstName;
 
@@ -65,6 +56,7 @@ public class RegistrationController implements GeneralFX{
     public void goBack() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("login-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 500, 300);
+        scene.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
         HelloApplication.getMainStage().setTitle("Registracija");
         HelloApplication.getMainStage().setScene(scene);
         HelloApplication.getMainStage().show();
@@ -88,7 +80,8 @@ public class RegistrationController implements GeneralFX{
                     isAdmin = false;
                 }
                 id = (long) Input.getUsers(USER_FILE).size() + 1;
-                User user = new User(id, isAdmin, firstName.getText(), lastName.getText(), mail.getText(), userName.getText(), password.getText(), educationLevel.getSelectionModel().getSelectedItem(), birthDate.getValue());
+                String hashPass = GeneralFX.hashPassword(password.getText());
+                User user = new User(id, isAdmin, firstName.getText(), lastName.getText(), mail.getText(), userName.getText(), hashPass, educationLevel.getSelectionModel().getSelectedItem(), birthDate.getValue());
                 System.out.println(user);
                 Input.writeUser(user);
                 clearAll();

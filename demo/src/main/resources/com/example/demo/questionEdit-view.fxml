@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.QuestionEditController">
+    <columnConstraints>
+        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+    </rowConstraints>
+    <children>
+        <Label text="Pitanje:" GridPane.rowIndex="1">
+            <GridPane.margin>
+                <Insets left="10.0" />
+            </GridPane.margin>
+        </Label>
+        <Label text="Odgovor d:" GridPane.rowIndex="5">
+            <GridPane.margin>
+                <Insets left="10.0" />
+            </GridPane.margin>
+        </Label>
+        <Label text="Odgovor c:" GridPane.rowIndex="4">
+            <GridPane.margin>
+                <Insets left="10.0" />
+            </GridPane.margin>
+        </Label>
+        <Label text="Odgovor b:" GridPane.rowIndex="3">
+            <GridPane.margin>
+                <Insets left="10.0" />
+            </GridPane.margin>
+        </Label>
+        <Label text="Odgovor a:" GridPane.rowIndex="2">
+            <GridPane.margin>
+                <Insets left="10.0" />
+            </GridPane.margin>
+        </Label>
+        <Label text="Točan odgovor:" GridPane.columnIndex="1" GridPane.rowIndex="3">
+            <GridPane.margin>
+                <Insets left="10.0" />
+            </GridPane.margin>
+        </Label>
+        <Label text="Kategorija:" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <GridPane.margin>
+                <Insets left="10.0" />
+            </GridPane.margin>
+        </Label>
+        <Button mnemonicParsing="false" onAction="#editQuestion" text="Ažuriraj pitanje" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="4">
+         <GridPane.margin>
+            <Insets left="10.0" />
+         </GridPane.margin></Button>
+        <TextField fx:id="question" prefHeight="26.0" prefWidth="416.0" GridPane.columnSpan="2" GridPane.rowIndex="1">
+            <GridPane.margin>
+                <Insets left="90.0" right="20.0" />
+            </GridPane.margin>
+        </TextField>
+        <TextField fx:id="c" GridPane.rowIndex="4">
+            <GridPane.margin>
+                <Insets left="90.0" />
+            </GridPane.margin>
+        </TextField>
+        <TextField fx:id="b" GridPane.rowIndex="3">
+            <GridPane.margin>
+                <Insets left="90.0" />
+            </GridPane.margin>
+        </TextField>
+        <TextField fx:id="a" GridPane.rowIndex="2">
+            <GridPane.margin>
+                <Insets left="90.0" />
+            </GridPane.margin>
+        </TextField>
+        <TextField fx:id="d" GridPane.rowIndex="5">
+            <GridPane.margin>
+                <Insets left="90.0" />
+            </GridPane.margin>
+        </TextField>
+        <ChoiceBox fx:id="category" prefWidth="150.0" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+            <GridPane.margin>
+                <Insets right="10.0" />
+            </GridPane.margin>
+        </ChoiceBox>
+        <ChoiceBox fx:id="correctAwnser" prefHeight="26.0" prefWidth="42.0" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
+            <GridPane.margin>
+                <Insets right="100.0" />
+            </GridPane.margin>
+        </ChoiceBox>
+      <fx:include source="menuBar-view.fxml" GridPane.columnSpan="2" GridPane.valignment="TOP" />
+      <Button mnemonicParsing="false" onAction="#deleteQuestion" text="Izbriši pitanje" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="4">
+         <GridPane.margin>
+            <Insets right="10.0" />
+         </GridPane.margin>
+      </Button>
+      <TableView fx:id="questionTableView" prefHeight="200.0" prefWidth="200.0" GridPane.columnSpan="2" GridPane.rowIndex="6" GridPane.rowSpan="3">
+        <columns>
+          <TableColumn fx:id="questionC" prefWidth="160" text="Pitanje" />
+          <TableColumn fx:id="aC" prefWidth="160" text="a" />
+            <TableColumn fx:id="bC" prefWidth="160" text="b" />
+            <TableColumn fx:id="cC" prefWidth="160" text="c" />
+            <TableColumn fx:id="dC" prefWidth="160" text="d" />
+            <TableColumn fx:id="categoryC" prefWidth="100" text="Kategorija" />
+            <TableColumn fx:id="correctAnwserC" prefWidth="100" text="Točan odgovor" />
+        </columns>
+      </TableView>
+      <Button mnemonicParsing="false" onAction="#searchQuestion" text="Pretraga" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
+    </children>
+</GridPane>

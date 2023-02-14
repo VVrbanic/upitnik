@@ -2,7 +2,7 @@ package entities;
 
 import java.time.LocalDate;
 
-public class User {
+public class User extends Person {
     private Long id;
     private Boolean isAdmin;
     private String firstName;
@@ -86,6 +86,7 @@ public class User {
     }
 
     public User(Long id, Boolean isAdmin, String firstName, String lastName, String email, String userName, String password, EducationLevel educationLevel, LocalDate dateOfBirth) {
+        super(id);
         this.id = id;
         this.isAdmin = isAdmin;
         this.firstName = firstName;

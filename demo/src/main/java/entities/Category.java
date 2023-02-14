@@ -1,13 +1,13 @@
 package entities;
 
 public enum Category {
-    ljudi(1, "Ljudi"),
-    skolskiPredmeti(2, 	"Školski predmeti"),
-    znanost(3, "Znanost"),
-    tehnologija(4, "Tehnologija"),
-    generalno(5, "Generalno"),
-    umjestnost(6, "Umjetnost"),
-    sport(7, "Sport");
+    Ljudi(1, "Ljudi"),
+    Skolski_predmeti(2, 	"Školski predmeti"),
+    Znanost(3, "Znanost"),
+    Tehnologija(4, "Tehnologija"),
+    Generalno(5, "Generalno"),
+    Umjetnost(6, "Umjetnost"),
+    Sport(7, "Sport");
 
     private Integer categoryNumber;
     private String categoryName;
@@ -17,31 +17,31 @@ public enum Category {
         this.categoryName = name;
     }
 
-    public Integer getEducationNumber() {
+    public Integer getCategoryNumber() {
         return categoryNumber;
     }
 
-    public void setEducationNumber(Integer educationNumber) {
-        this.categoryNumber = educationNumber;
+    public void setCategoryNumber(Integer categoryNumber) {
+        this.categoryNumber = categoryNumber;
     }
 
-    public String getEducationName() {
+    public String getCategoryName() {
         return categoryName;
     }
 
-    public void setEducationName(String educationName) {
-        this.categoryName = educationName;
+    public void setCategoryName(String categoryNumber) {
+        this.categoryName = categoryNumber;
     }
 
     public static Category parseEducationLevel(int level) {
         return switch (level) {
-            case 1 -> ljudi;
-            case 2 -> skolskiPredmeti;
-            case 3 -> znanost;
-            case 4 -> tehnologija;
-            case 5 -> generalno;
-            case 6 -> umjestnost;
-            case 7 -> sport;
+            case 1 -> Ljudi;
+            case 2 -> Skolski_predmeti;
+            case 3 -> Znanost;
+            case 4 -> Tehnologija;
+            case 5 -> Generalno;
+            case 6 -> Umjetnost;
+            case 7 -> Sport;
             default -> {
                 String message = String.format("Invalid education level: %d", level);
                 throw new RuntimeException(message);
@@ -51,13 +51,13 @@ public enum Category {
 
     public static Integer parseNumberLevel(Category level) {
         return switch (level) {
-            case ljudi -> 1;
-            case skolskiPredmeti -> 2;
-            case znanost -> 3;
-            case tehnologija -> 4;
-            case generalno -> 5;
-            case umjestnost -> 6;
-            case sport -> 7;
+            case Ljudi -> 1;
+            case Skolski_predmeti -> 2;
+            case Znanost -> 3;
+            case Tehnologija -> 4;
+            case Generalno -> 5;
+            case Umjetnost -> 6;
+            case Sport -> 7;
             default -> {
                 String message = String.format("Invalid number level: %d", level);
                 throw new RuntimeException(message);

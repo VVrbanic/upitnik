@@ -1,6 +1,8 @@
 package entities;
 
-public class Question{
+import java.io.Serializable;
+
+public class Question implements Serializable {
     Long id;
     Category category;
     Integer correctAnwser;
@@ -104,5 +106,67 @@ public class Question{
                 ", d='" + d + '\'' +
                 ", question='" + question + '\'' +
                 '}';
+    }
+
+    public static class Builder{
+        Long id;
+        Category category;
+        Integer correctAnwser;
+        String a;
+        String b;
+        String c;
+        String d;
+        String question;
+
+        public Builder(long id){
+            this.id = id;
+        }
+
+        public Builder withCategory(Category category){
+            this.category = category;
+            return this;
+        }
+
+        public Builder withCorrectAnwser(Integer correctAnwser){
+            this.correctAnwser = correctAnwser;
+            return this;
+        }
+        public Builder withA(String a){
+            this.a = a;
+            return this;
+        }
+        public Builder withB(String b){
+            this.b = b;
+            return this;
+        }
+        public Builder withC(String c){
+            this.c = c;
+            return this;
+        }
+        public Builder withD(String d){
+            this.d = d;
+            return this;
+        }
+
+        public Builder withQuestion(String question){
+            this.question = question;
+            return this;
+        }
+
+        public Question build(){
+            Question q = new Question();
+            q.category = this.category;
+            q.correctAnwser = this.correctAnwser;
+            q.a = this.a;
+            q.b = this.b;
+            q.c = this.c;
+            q.d = this.d;
+            q.question = this.question;
+
+            return q;
+        }
+    }
+    private Question(){
+
     }
 }

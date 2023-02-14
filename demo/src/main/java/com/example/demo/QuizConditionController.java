@@ -25,6 +25,7 @@ public class QuizConditionController {
     public void goBack() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("userDashboard-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 500, 300);
+        scene.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
         HelloApplication.getMainStage().setTitle("Dashboard");
         HelloApplication.getMainStage().setScene(scene);
         HelloApplication.getMainStage().show();
@@ -32,8 +33,10 @@ public class QuizConditionController {
 
     public void startQuiz() throws IOException {
         indexCategory = (Category) category.getValue();
+
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("questions-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 900, 300);
+        scene.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
         HelloApplication.getMainStage().setTitle("Kviz");
         HelloApplication.getMainStage().setScene(scene);
         HelloApplication.getMainStage().show();
@@ -41,8 +44,8 @@ public class QuizConditionController {
 
     public static Integer getIndex(){
         Category tmpCategory = indexCategory;
-        Integer index = tmpCategory.getEducationNumber();
-        System.out.println(tmpCategory.getEducationNumber());
+        Integer index = tmpCategory.getCategoryNumber();
+        System.out.println(tmpCategory.getCategoryNumber());
 
         return index;
     }

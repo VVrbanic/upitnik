@@ -1,6 +1,7 @@
 package entities;
 
 import java.io.*;
+import java.net.SocketImpl;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -22,9 +23,9 @@ public class Input {
 
         try(Scanner scanner = new Scanner(new File(filename))){
             while(scanner.hasNextLine()){
-                long id = scanner.nextLong();
+                long id = scanner.nextInt();
+                System.out.println(id);
                 scanner.nextLine();
-
                 Integer role = scanner.nextInt();
                 Boolean isAdmin = convertRole(role);
                 scanner.nextLine();
@@ -48,11 +49,11 @@ public class Input {
 
                 User user= new User(id,isAdmin, firstName, lastName,email, userName, password, educationLevel, dateOfBirth);
                 users.put(user.getId(),user);
+
             }
         }catch(FileNotFoundException ex){
             throw new RuntimeException(String.format("File not found of #Users# class: %s%n", filename));
         }
-        System.out.println(users);
         return users;
     }
     public static Optional<User> checkUsersPassword(String userName, String password){
@@ -61,9 +62,7 @@ public class Input {
         users = getUsers(USER_FILE);
         for (Map.Entry<Long, User> entry:users.entrySet()){
             tempUser = entry.getValue();
-            System.out.println(tempUser.getUserName());
             if (tempUser.getUserName().equals(userName)) {
-                System.out.println(tempUser.getPassword());
                 if (tempUser.getPassword().equals(password)){
                     return Optional.of(tempUser);
                 }
@@ -112,7 +111,6 @@ public class Input {
         users = getUsers(USER_FILE);
         for (Map.Entry<Long, User> entry:users.entrySet()){
             tempUser = entry.getValue();
-            System.out.println(tempUser.getUserName());
             if (tempUser.getUserName().equals(userName) || tempUser.getPassword().equals(password)) {
                 return false;
             }

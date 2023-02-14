@@ -2,6 +2,8 @@ package com.example.demo;
 
 import FileBase.FileBase;
 import entities.Question;
+import exceptions.NoAnwserException;
+import exceptions.NoQuestionsFoundException;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -9,6 +11,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -35,8 +39,16 @@ public class QuestionsController {
     public static Integer result = 0;
     ToggleGroup anwser = new ToggleGroup();
     List<Question> questionList = new ArrayList<>(FileBase.getQuiz(QuizConditionController.getIndex()));
+    private static final Logger logger = LoggerFactory.getLogger(QuestionsController.class);
 
-    public void initialize() {
+    public void initialize() throws IOException {
+        try {
+            checkQuestionNumber();
+        }catch (NoQuestionsFoundException ex){
+            System.out.println("Nedovoljno pitanja za kviz!");
+            logger.error("Nedovoljno pitanja za kviz!");
+
+        }
         a.setToggleGroup(anwser);
         b.setToggleGroup(anwser);
         c.setToggleGroup(anwser);
@@ -50,7 +62,20 @@ public class QuestionsController {
         d.setText(questionList.get(i).getD());
     }
 
+    private void checkQuestionNumber() throws NoQuestionsFoundException {
+        if (questionList.size() < 5){
+            throw new NoQuestionsFoundException();
+        }
+    }
+
     public void nextQuestion() throws IOException {
+        try{
+            doesAnwserExist();
+        }catch (NoAnwserException na) {
+            System.out.println("Pitanje nije odgovoreno!");
+            logger.error("Pitanje nije odgovoreno!");
+
+        }
         checkIfCorrect();
         if (i < 4){
             i++;
@@ -60,10 +85,18 @@ public class QuestionsController {
         else{
             FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("results-view.fxml"));
             Scene scene = new Scene(fxmlLoader.load(), 500, 300);
+            scene.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
             HelloApplication.getMainStage().setTitle("Rezultati");
             HelloApplication.getMainStage().setScene(scene);
             HelloApplication.getMainStage().show();
         }
+    }
+
+    private void doesAnwserExist() {
+        if(!(a.isSelected() || b.isSelected() || c.isSelected() || d.isSelected())){
+            throw new NoAnwserException();
+        }
+
     }
 
     private void checkIfCorrect() {

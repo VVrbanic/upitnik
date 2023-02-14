@@ -4,7 +4,7 @@
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
 
-<MenuBar xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.MenuBarController">
+<MenuBar prefHeight="26.0" prefWidth="419.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.MenuBarController">
   <menus>
     <Menu mnemonicParsing="false" text="Korisnici">
       <items>
@@ -14,15 +14,14 @@
     </Menu>
     <Menu mnemonicParsing="false" text="Pitanja">
       <items>
-            <MenuItem mnemonicParsing="false" text="Unesi novo pitanje" />
-            <MenuItem mnemonicParsing="false" text="Ažuriranje i pretraga" />
+            <MenuItem mnemonicParsing="false" onAction="#showQuestionInput" text="Unesi novo pitanje" />
+            <MenuItem mnemonicParsing="false" onAction="#showQuestionEdit" text="Ažuriranje i pretraga" />
       </items>
     </Menu>
-    <Menu mnemonicParsing="false" text="Kategorije">
-      <items>
-            <MenuItem mnemonicParsing="false" text="Unesi novu kategoriju" />
-            <MenuItem mnemonicParsing="false" text="Ažuriranje i pretraga" />
-      </items>
-    </Menu>
+      <Menu mnemonicParsing="false" onAction="#logOut" text="Postavke">
+         <items>
+            <MenuItem mnemonicParsing="false" onAction="#logOut" text="Log out" />
+            <MenuItem mnemonicParsing="false" onAction="#showNewQuestions" text="Popis dodanih pitanja" />
+         </items></Menu>
   </menus>
 </MenuBar>
