@@ -18,7 +18,7 @@
             <MenuItem mnemonicParsing="false" onAction="#showQuestionEdit" text="Ažuriranje i pretraga" />
       </items>
     </Menu>
-      <Menu mnemonicParsing="false" onAction="#logOut" text="Postavke">
+      <Menu mnemonicParsing="false" text="Postavke">
          <items>
             <MenuItem mnemonicParsing="false" onAction="#logOut" text="Log out" />
             <MenuItem mnemonicParsing="false" onAction="#showNewQuestions" text="Popis dodanih pitanja" />

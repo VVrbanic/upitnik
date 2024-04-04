@@ -115,9 +115,15 @@ public class QuestionEditController {
         return correctAnwsers;
     }
     public void deleteQuestion(){
-        Question q = questionTableView.getSelectionModel().getSelectedItem();
-        FileBase.deleteQuestion(q);
-        questionTableView.getItems().remove(q);
+        Alert confirmationAlert = new Alert(Alert.AlertType.CONFIRMATION);
+        confirmationAlert.setContentText("Jeste sigurni da želite izbrisati pitanje?");
+        Optional<ButtonType> result = confirmationAlert.showAndWait();
+
+        if (result.get() == ButtonType.OK) {
+            Question q = questionTableView.getSelectionModel().getSelectedItem();
+            FileBase.deleteQuestion(q);
+            questionTableView.getItems().remove(q);
+        }
 
     }
     public void searchQuestion(){
@@ -188,24 +194,30 @@ public class QuestionEditController {
             messages.add("Unesite točan odgovor!");
         }
         if (messages.size() == 0){
-            Integer correctAwnserInteger = getCorrectAnwserInteger((String) correctAwnser.getSelectionModel().getSelectedItem());
-            if (correctAwnserInteger == -1){
-                String m = "Nedozvoljen točan odgovor";
-                var alert = new Alert(Alert.AlertType.ERROR, m);
-                alert.setTitle("Greška pri unosu!");
-                alert.show();
-            }
-            Category categoryTmp = (Category) category.getSelectionModel().getSelectedItem();
-            Integer categoryTmpInteger = categoryTmp.getCategoryNumber();
+            Alert confirmationAlert = new Alert(Alert.AlertType.CONFIRMATION);
+            confirmationAlert.setContentText("Jeste sigurni da želite promjeniti pitanje?");
+            Optional<ButtonType> result = confirmationAlert.showAndWait();
 
-            Question newQuestion = new Question(questionTableView.getSelectionModel().getSelectedItem().getId(), categoryTmp, correctAwnserInteger, a.getText(), b.getText(), c.getText(), d.getText(), question.getText());
-            FileBase.editQuestion(newQuestion);
-            var alert = new Alert(Alert.AlertType.INFORMATION, "Uspjeh");
-            alert.setTitle("Uneseno novo pitanje!");
-            alert.show();
-            questionList = FileBase.getQuestion();
-            System.out.println(questionList);
-            questionTableView.setItems(FXCollections.observableList(questionList));
+            if (result.get() == ButtonType.OK) {
+                Integer correctAwnserInteger = getCorrectAnwserInteger((String) correctAwnser.getSelectionModel().getSelectedItem());
+                if (correctAwnserInteger == -1) {
+                    String m = "Nedozvoljen točan odgovor";
+                    var alert = new Alert(Alert.AlertType.ERROR, m);
+                    alert.setTitle("Greška pri unosu!");
+                    alert.show();
+                }
+                Category categoryTmp = (Category) category.getSelectionModel().getSelectedItem();
+                Integer categoryTmpInteger = categoryTmp.getCategoryNumber();
+
+                Question newQuestion = new Question(questionTableView.getSelectionModel().getSelectedItem().getId(), categoryTmp, correctAwnserInteger, a.getText(), b.getText(), c.getText(), d.getText(), question.getText());
+                FileBase.editQuestion(newQuestion);
+                var alert = new Alert(Alert.AlertType.INFORMATION, "Uspjeh");
+                alert.setTitle("Uneseno novo pitanje!");
+                alert.show();
+                questionList = FileBase.getQuestion();
+                System.out.println(questionList);
+                questionTableView.setItems(FXCollections.observableList(questionList));
+            }
 
         }
         else{

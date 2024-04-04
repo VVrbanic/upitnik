@@ -26,8 +26,6 @@ public class UserEditController {
     @FXML
     private TextField mail;
     @FXML
-    private DatePicker birthDate;
-    @FXML
     private ChoiceBox<EducationLevel> educationLevel;
     @FXML
     private TextField userName;
@@ -47,8 +45,6 @@ public class UserEditController {
     private TableColumn<User, String> dateOfBirthC;
     @FXML
     private TableColumn<User, String> userNameC;
-    /*@FXML
-    private TableColumn<User, String> passwordC;*/
     @FXML
     private TableColumn<User, String> roleC;
     @FXML
@@ -57,6 +53,7 @@ public class UserEditController {
     private TableView<User> userTable;
     private static final String USER_FILE = "C:\\Users\\Vera\\Desktop\\Upitnik-opce-informiranosti\\demo\\src\\main\\java\\file\\users.txt";
 
+    public DateTimeFormatter pattern = DateTimeFormatter.ofPattern("yyyy-MM-dd");
     public List<Role> listRole = new ArrayList<>();
     public static Map<Long, User> userMap = Input.getUsers(USER_FILE);
 
@@ -86,33 +83,34 @@ public class UserEditController {
     }
     public void searchUser() {
         String firstNameTmp = firstName.getText();
-        System.out.println(firstNameTmp);
         String lastNameTmp = lastName.getText();
         String mailTmp = mail.getText();
-        LocalDate dateTmp = birthDate.getValue();
         String userNameTmp = userName.getText();
-        EducationLevel educationLevelTmp = educationLevel.getSelectionModel().getSelectedItem();
-       /*Role roleTmp = roles.getSelectionModel().getSelectedItem();
-        System.out.println(roleTmp);
-        Boolean isAdmin;
-        if(roleTmp.getRoleName().equals("Admin")){
-            isAdmin = true;
-        }else{
-            isAdmin = false;
+        EducationLevel educationLevelTmp = educationLevel.getValue();
+        Role roleTmp = roles.getValue();
+        Boolean isAdmin = true;
+        if(roleTmp != null) {
+            if (roleTmp.getRoleName().equals("Admin")) {
+                isAdmin = true;
+            } else {
+                isAdmin = false;
+            }
+        System.out.println(isAdmin);
         }
-        System.out.println(isAdmin);*/
 
         List<User> filteredUsers = new ArrayList<>();
-        if (dateTmp == null) {
+        if(isAdmin == null){
             filteredUsers = mapToUserList(userMap).stream().filter(s -> s.getFirstName().contains(firstNameTmp)).
                     filter(s -> s.getLastName().contains(lastNameTmp)).filter(s -> s.getEmail().contains(mailTmp)).
-                    filter(s -> s.getUserName().contains(userNameTmp)).filter(s -> s.getEducationLevel().getEducationName().equals(educationLevelTmp)).
+                    filter(s -> s.getUserName().contains(userNameTmp)).filter(s -> s.getEducationLevel().same(educationLevelTmp)).
                     toList();
+
         } else {
+            Boolean finalIsAdmin = isAdmin;
             filteredUsers = mapToUserList(userMap).stream().filter(s -> s.getFirstName().contains(firstNameTmp)).
-                    filter(s -> s.getLastName().contains(lastNameTmp)).//filter(s -> s.getEmail().contains(mailTmp)).
-                    //filter(s -> s.getUserName().contains(userNameTmp)).filter(s -> s.getEducationLevel().equals(educationLevelTmp)).
-                    toList();
+                    filter(s -> s.getLastName().contains(lastNameTmp)).filter(s -> s.getEmail().contains(mailTmp)).
+                    filter(s -> s.getUserName().contains(userNameTmp)).filter(s -> s.getEducationLevel().same(educationLevelTmp)).
+                    filter(s -> (s.getIsAdmin() == finalIsAdmin)).toList();
         }
         userTable.setItems(FXCollections.observableList(filteredUsers));
     }

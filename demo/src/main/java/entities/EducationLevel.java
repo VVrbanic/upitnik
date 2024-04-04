@@ -1,5 +1,7 @@
 package entities;
 
+import java.util.Optional;
+
 public enum EducationLevel {
     NKV(1, "Nezavršena osnovna škola"),
     KV(2, 	"Završena osnovna škola"),
@@ -59,6 +61,18 @@ public enum EducationLevel {
                 throw new RuntimeException(message);
             }
         };
+    }
+
+    public Boolean same(EducationLevel ed){
+        if(ed != null) {
+            if (ed.getEducationNumber() == this.educationNumber) {
+                return true;
+            } else {
+                return false;
+            }
+        }else{
+            return true;
+        }
     }
 }
 

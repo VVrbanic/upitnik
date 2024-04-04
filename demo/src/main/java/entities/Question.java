@@ -154,7 +154,8 @@ public class Question implements Serializable {
         }
 
         public Question build(){
-            Question q = new Question();
+            Question q = new
+                    Question();
             q.category = this.category;
             q.correctAnwser = this.correctAnwser;
             q.a = this.a;

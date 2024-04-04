@@ -50,7 +50,12 @@
     -fx-background-color: #E9F8F9;
     -fx-text-fill: #181823;
 }
-
+.table-row-cell:selected {
+    -fx-background-color: white;
+}
+.table-row-cell:selected .text{
+    -fx-fill: #181823;
+}
 .menu-item{
     -fx-background-color: #E9F8F9;
 }

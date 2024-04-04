@@ -42,7 +42,6 @@ public non-sealed class UserInputController implements GeneralFX {
 
     public EducationLevel eduLvl;
 
-    public static ArrayList<String> messages = new ArrayList<>();
     private static final String USER_FILE = "C:\\Users\\Vera\\Desktop\\Upitnik-opce-informiranosti\\demo\\src\\main\\java\\file\\users.txt";
 
 
@@ -66,7 +65,7 @@ public non-sealed class UserInputController implements GeneralFX {
         Long id;
         Boolean isAdmin;
 
-        isFull(messages);
+        ArrayList<String> messages = isFull();
         //SREDI
         if(!Input.isUnique(mail.getText(), userName.getText(), password.getText())) {
             GeneralFX.userExists();
@@ -74,7 +73,8 @@ public non-sealed class UserInputController implements GeneralFX {
         else {
             if (messages.size() == 0) {
                 success();
-                if (roleAdmin.getText().isBlank()) {
+                if (roleAdmin.isSelected()) {
+
                     isAdmin = true;
                 } else {
                     isAdmin = false;
@@ -104,7 +104,8 @@ public non-sealed class UserInputController implements GeneralFX {
         roleAdmin.setSelected(false);
     }
     //METHODS
-    public void isFull(ArrayList < String > messages) {
+    public ArrayList<String> isFull() {
+        ArrayList<String> messages = new ArrayList<>();
         if (firstName.getText().isBlank()) {
             messages.add("Molimo unesite ime");
         }
@@ -129,5 +130,6 @@ public non-sealed class UserInputController implements GeneralFX {
         if (roleAdmin.getText() == null || roleUser.getText() == null) {
             messages.add("Molimo označi rolu");
         }
+        return messages;
     }
 }

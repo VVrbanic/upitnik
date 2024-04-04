@@ -24,7 +24,6 @@ public class Input {
         try(Scanner scanner = new Scanner(new File(filename))){
             while(scanner.hasNextLine()){
                 long id = scanner.nextInt();
-                System.out.println(id);
                 scanner.nextLine();
                 Integer role = scanner.nextInt();
                 Boolean isAdmin = convertRole(role);
@@ -90,7 +89,7 @@ public class Input {
     }
 
     private static Integer role(User user) {
-        if(user.getIsAdmin().equals(true)){
+        if(user.getIsAdmin() == true){
             return 0;
         }
         else return 1;

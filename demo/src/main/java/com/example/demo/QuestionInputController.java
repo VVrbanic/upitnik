@@ -9,9 +9,7 @@ import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectOutputStream;
+import java.io.*;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
@@ -108,10 +106,29 @@ public class QuestionInputController {
     }
 
     private void serialziation(Question newQuestion) {
+        List<Question> questionList = new ArrayList<>();
+        try (ObjectInputStream in = new ObjectInputStream(
+                new FileInputStream(SERIALIZATION_FILE_NAME))) {
+        try {
+            while (true) {
+                Question q = (Question) in.readObject();
+                questionList.add(q);
+            }
+            }catch (EOFException eo){
+                System.out.println("Dosli smo do kraja datoteke!");
+            }
+        } catch (IOException ex) {
+            System.err.println(ex);
+        } catch (ClassNotFoundException ex) {
+            System.err.println(ex);
+        }
+        questionList.add(newQuestion);
         try (ObjectOutputStream out = new ObjectOutputStream(
-                new FileOutputStream(SERIALIZATION_FILE_NAME, true))) {
-            Question q = newQuestion;
-            out.writeObject(q);
+                new FileOutputStream(SERIALIZATION_FILE_NAME))) {
+            for(int i = 0; i < questionList.size(); i++) {
+                Question q = questionList.get(i);
+                out.writeObject(q);
+            }
         } catch (IOException ex) {
             System.err.println(ex);
         }

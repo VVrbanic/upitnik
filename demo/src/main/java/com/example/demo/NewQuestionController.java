@@ -15,6 +15,7 @@ import javafx.scene.control.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.EOFException;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -50,10 +51,13 @@ public class NewQuestionController {
         List<Question> questionList = new ArrayList<>();
         try (ObjectInputStream in = new ObjectInputStream(
                 new FileInputStream(SERIALIZATION_FILE_NAME))) {
-            while(in != null) {
-                Question q = (Question) in.readObject();
-                System.out.println(q);
-                questionList.add(q);
+            try {
+                while (true) {
+                    Question q = (Question) in.readObject();
+                    questionList.add(q);
+                }
+            }catch (EOFException eo){
+                System.out.println("Dosli smo do kraja datoteke!");
             }
         } catch (IOException ex) {
             System.err.println(ex);

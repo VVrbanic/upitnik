@@ -91,8 +91,7 @@ public class FileBase {
                 String d = resultSet.getString("d");
                 String question = resultSet.getString("question");
 
-                Question tempQuestion = new Question.Builder(id).withCategory(category).withCorrectAnwser(correctAnwser)
-                        .withA(a).withB(b).withC(c).withD(d).withQuestion(question).build();
+                Question tempQuestion = new Question(id, category,correctAnwser, a, b, c, d, question);
                 questionList.add(tempQuestion);
 
             }
@@ -149,6 +148,7 @@ public class FileBase {
             }
 
             PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM QUESTIONS WHERE ID = ?");
+            System.out.println(q);
             preparedStatement.setLong(1, q.getId());
 
             preparedStatement.executeUpdate();
